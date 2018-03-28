@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { CanActivate } from "@angular/router";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 
-import { AuthService } from "../services/auth.service";
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class RequireAnonGuardService implements CanActivate {
@@ -15,7 +15,7 @@ export class RequireAnonGuardService implements CanActivate {
         if (!user) {
           return true;
         } else {
-          this.router.navigate(["/"]);
+          this.router.navigate(['/']);
           return false;
         }
       })

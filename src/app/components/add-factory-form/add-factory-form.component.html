@@ -1,0 +1,18 @@
+
+  <form (ngSubmit)="addItem()" #myForm="ngForm">
+      <label for="companyName">Company name</label>
+      <input type="text" name="companyName"  placeholder="company name" [(ngModel)]="factory.companyName">
+      <label for="address">address</label>
+      <input type="text" name="address" placeholder="address"  [(ngModel)]="factory.address">
+      <label for="zipcode">Zipcode</label>
+      <input type="text" name="zipcode" placeholder="zipcode"  [(ngModel)]="factory.zipcode">
+      <label for="country">Country</label>
+      <input type="text" name="country" placeholder="country"  [(ngModel)]="factory.country">
+      <label for="activity">Activity</label>
+      <input type="text" name="activity" placeholder="activity"  [(ngModel)]="factory.activity">
+      <label for="billing">Billing</label>
+      <input type="text" name="billing" placeholder="billing"  [(ngModel)]="factory.billing">
+
+      <button type="submit">Add arms factory </button>
+    </form>
+    <button (click)="showList()">Show list</button>

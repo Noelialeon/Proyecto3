@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Observable } from "rxjs/Observable";
-import { Subject } from "rxjs/Subject";
-import "rxjs/add/operator/toPromise";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
-  
+
   private user: any;
   private userChange: Subject<any> = new Subject();
 
@@ -72,7 +72,7 @@ export class AuthService {
       withCredentials: true
     };
     return this.httpClient.get(`${this.API_URL}/private`, options)
-      .toPromise()
+      .toPromise();
   }
 
 }
