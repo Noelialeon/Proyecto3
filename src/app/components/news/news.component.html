@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h1> Related news </h1>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4" *ngFor="let new of allNews">
+      <div class="card">
+        <a class="img-card" target="_blank" href="{{new.url}}">
+          <img src="{{ new.urlToImage }}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
+        </a>
+        <div class="card-content">
+          <h4 class="card-title" style="margin-bottom:0px">
+            <a target="_blank" href="{{new.url}}">
+              <strong>{{new.title}}</strong>
+            </a>
+          </h4>
+          <small class="text-muted-black" >{{new.source.name}}</small>
+          <div class="card-text" style="margin-top:10px">
+            <a target="_blank" href="{{new.url}}">
+              {{new.description}}
+            </a>
+          </div>
+          <p class="card-text">
+            <small class="text-muted">{{new.publishedAt | date:'medium'}}</small>
+          </p>
+        </div>
+        <div class="card-read-more">
+          <a class="btn btn-link btn-block" href="{{new.url}}">
+            Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <small>
+    Powered by newsapi.org
+  </small>

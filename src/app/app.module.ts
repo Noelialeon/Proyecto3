@@ -8,24 +8,27 @@ import { FormsModule } from '@angular/forms';
 // import { MapModule, MapAPILoader, BingMapAPILoaderConfig, BingMapAPILoader, WindowRef,
 //   DocumentRef, MapServiceFactory, BingMapServiceFactory } from 'angular-maps';
 
-import { RequireAnonGuardService } from './guards/require-anon-guard.service';
-import { RequireUserGuardService } from './guards/require-user-guard.service';
-import { InitAuthGuardService } from './guards/init-auth-guard.service';
-
-import { AppComponent } from './app.component';
+// Auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
 import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-login-page-component.component';
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
 import { AuthService } from './services/auth.service';
-import { FactoryApiService } from './services/factory-api.service';
-import {AddFactoryFormComponent} from './components/add-factory-form/add-factory-form.component';
-
-// import { MapServiceProviderFactory } from '../app/services/map.service';
-
+import { RequireAnonGuardService } from './guards/require-anon-guard.service';
+import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { PrivateComponent } from './pages/private/private.component';
+
+// Services
+import { FactoryApiService } from './services/factory-api.service';
+// import { MapServiceProviderFactory } from '../app/services/map.service';
+
+// Components
+import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
+import { NewsComponent } from './components/news/news.component';
+import { AddFactoryFormComponent} from './components/add-factory-form/add-factory-form.component';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -64,6 +67,7 @@ const routes: Routes = [
     PrivateComponent,
     MapComponent,
     AddFactoryFormComponent,
+    NewsComponent,
   ],
   imports: [
     // MapModule.forRoot(),
