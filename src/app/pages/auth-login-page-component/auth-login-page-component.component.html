@@ -1,13 +1,32 @@
-<h1> Authentication Sample </h1>
-<form>
-  <h2> Login or Signup </h2>
-  <label> Username </label>
-  <input type="text" [(ngModel)]="formInfo.username" name="username" />
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password" />
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 mx-auto">
+      <div class="card-register mx-auto">
+        <div class="card-body">
+          <h3 class="card-title">Sign up</h3>
+          <form>
+            <div class="form-group">
+              <label> Username </label>
+              <input class="form-control" type="text" [(ngModel)]="formInfo.username" name="username" />
+            </div>
 
-  <button (click)="login()"> login </button>
-  <button (click)="signup()"> signup </button>
-</form>
-<p class="error"> {{ error | json }} </p>
+            <div class="form-group">
+              <label> Password </label>
+              <input class="form-control" type="password" [(ngModel)]="formInfo.password" name="password" />
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <button class="btn btn-register btn-primary btn-block" (click)="login()"> login </button>
+              </div>
+
+              <div class="form-group col-md-6">
+                <button class="btn btn-register btn-primary btn-block" (click)="signup()"> signup </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="error"> {{ error | json }} </p>
+</div>
