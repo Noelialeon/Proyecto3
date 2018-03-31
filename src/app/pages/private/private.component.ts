@@ -1,29 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FactoryApiService } from '../../services/factory-api.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-private',
   templateUrl: './private.component.html',
-  styleUrls: ['./private.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class PrivateComponent implements OnInit {
   user;
-  data;
 
-  constructor(private session: AuthService) { }
+  constructor(
+    private session: AuthService,
+    private factoryApi: FactoryApiService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.user = this.session.getUser();
   }
-
-  getPrivate() {
-    this.session.private()
-      .then((data) => {
-        this.data = data;
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-
 }

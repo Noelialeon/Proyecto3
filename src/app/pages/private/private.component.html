@@ -1,6 +1,23 @@
-<p>
-  private works! {{ user | json }}
-</p>
-<p>{{ data | json }}</p>
+<div class="container">
+  <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <div class="name">
+          <h4 class="title">Welcome back, {{this.user.username}}
+            <br />
+          </h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto text-center">
+          <h5>Some text about {{this.user.username}}</h5>
+          <br />
+          <!-- <a href="/users/edit" class="btn btn-outline-default btn-round">Editar perfil</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
 
-<button (click)="getPrivate()">get private</button>
+<app-list-factories></app-list-factories>
+<app-add-factory-form></app-add-factory-form>
+</div>

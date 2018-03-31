@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FactoryApiService } from '../../services/factory-api.service';
 
 @Component({
@@ -7,8 +7,8 @@ import { FactoryApiService } from '../../services/factory-api.service';
   styleUrls: ['./add-factory-form.component.css']
 })
 export class AddFactoryFormComponent implements OnInit {
+  @Output() add = new EventEmitter<string>();
   factory: any = {};
-  factories: any[] = [];
 
   constructor(private factoryApi: FactoryApiService) {}
 
@@ -18,7 +18,9 @@ export class AddFactoryFormComponent implements OnInit {
     this.factoryApi.add(this.factory).then(res => {
       console.log(res);
     });
+    // this.add.emit(this.factory);
   }
+
 
   showList() {
     this.factoryApi.getList()

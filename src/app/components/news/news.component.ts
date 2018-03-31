@@ -6,10 +6,9 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css'],
-  providers: [NewsService],
+  styleUrls: ['../../app.component.css'],
+  providers: [NewsService]
 })
-
 export class NewsComponent implements OnInit {
   allNews: any = [];
   // news = {
@@ -17,21 +16,15 @@ export class NewsComponent implements OnInit {
   //   totalResults: 0,
   //   articles: [],
   // };
-latestNews: any = [];
+  latestNews: any = [];
 
-
-  constructor( private newsService: NewsService) { }
+  constructor(private newsService: NewsService) {}
 
   ngOnInit() {
     this.getNews();
   }
 
   getNews() {
-    this.newsService.getNews()
-    .then( (res) => this.allNews = res.articles)
-    // .then((res) => console.log("news is", res));
-    .then(() => console.log('news are', this.allNews));
-
+    this.newsService.getNews().then(res => (this.allNews = res.articles));
   }
-
 }

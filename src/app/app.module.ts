@@ -29,6 +29,7 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { NewsComponent } from './components/news/news.component';
 import { AddFactoryFormComponent} from './components/add-factory-form/add-factory-form.component';
+import { ListFactoriesComponent } from './components/list-factories/list-factories.component';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -54,7 +55,7 @@ const routes: Routes = [
     component: AuthLoginPageComponent,
     canActivate: [RequireAnonGuardService]
   },
-  { path: 'page',  component: PrivateComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'private-profile',  component: PrivateComponent , canActivate: [ RequireUserGuardService ] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -68,6 +69,7 @@ const routes: Routes = [
     MapComponent,
     AddFactoryFormComponent,
     NewsComponent,
+    ListFactoriesComponent,
   ],
   imports: [
     // MapModule.forRoot(),

@@ -1,0 +1,34 @@
+<hr>
+<h5> Your research contains the following factories: </h5>
+<div class="row">
+  <div class="col-xs-12 col-sm-4 mt-2" *ngFor="let factory of factories">
+    <div class="card">
+      <div class="img-card">
+        <img src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
+      </div>
+      <div class="card-content p-3">
+        <h4 class="card-title" style="margin-bottom:0px">
+          <strong>Factory: {{factory.companyName}}</strong>
+        </h4>
+        <small class="text-muted">Updated at: {{ factory.updated_at | date:'medium'}}</small>
+        <div class="card-text" style="margin-top:10px">
+          <p>Activity: {{ factory.activity }}</p>
+          <p>Billing: {{ factory.billing }} M€</p>
+          <p>Country: {{ factory.country }}</p>
+          <p>Address: {{ factory.address }}</p>
+          <p>Address: {{ factory.user_id }}</p>
+
+        </div>
+      </div>
+      <div class="card-read-more">
+
+        <div class="btn btn-link btn-block">
+          Edit info
+        </div>
+        <div class="btn btn-link btn-block small" (click)="deleteItem(factory)">
+          Delete factory
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
