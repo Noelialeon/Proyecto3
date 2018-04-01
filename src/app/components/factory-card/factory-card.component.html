@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="img-card">
+    <img src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
+  </div>
+  <div class="card-content p-3">
+    <div *ngIf="!editing">
+      <h4 class="card-title" style="margin-bottom:0px">
+        <strong>Factory: {{factory.companyName}}</strong>
+      </h4>
+      <small class="text-muted">Updated at: {{ factory.updated_at | date:'medium'}}</small>
+      <div class="card-text" style="margin-top:10px">
+        <p>Activity: {{ factory.activity }}</p>
+        <p>Billing: {{ factory.billing }} M€</p>
+        <p>Country: {{ factory.country }}</p>
+        <p>Address: {{ factory.address }}</p>
+      </div>
+    </div>
+    <div *ngIf="editing">
+      <app-edit-factory-form [factory]="factory" (update)="updateFactory($event)"></app-edit-factory-form>
+    </div>
+  </div>
+  <div *ngIf="!editing" class="card-read-more p-3">
+    <button class="btn btn-block" (click)="showForm()">
+      Edit info
+    </button>
+    <div class="btn btn-link btn-block" (click)="deleteItem(factory)">
+      Delete factory
+    </div>
+  </div>
+</div>

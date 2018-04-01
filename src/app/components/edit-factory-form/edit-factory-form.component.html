@@ -1,0 +1,19 @@
+<div class="card-text" style="margin-top:10px">
+  <p>Company Name</p>
+  <input type="text" class="form-control" name="companyName" placeholder="company name" [(ngModel)]="factory.companyName">
+  <p>Activity:
+    <input type="text" class="form-control" name="activity" placeholder="{{factory.activity}}" [(ngModel)]="factory.activity">
+  </p>
+  <p>Billing:
+    <input type="text" class="form-control" name="billing" placeholder="{{factory.billing}}" [(ngModel)]="factory.billing"> M€
+  </p>
+  <p>Country:
+    <input type="text" class="form-control" name="country" placeholder="{{factory.country}}" [(ngModel)]="factory.country">
+  </p>
+  <p>Address:
+    <input type="text" class="form-control" name="address" placeholder="{{factory.address}}" [(ngModel)]="factory.address">
+
+    <input type="text" class="form-control" name="zipcode" placeholder="{{factory.zipcode}}" [(ngModel)]="factory.zipcode">
+  </p>
+  <button type="submit" class="btn btn-block" (click)="edit(factory)">Save changes</button>
+</div>

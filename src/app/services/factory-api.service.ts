@@ -8,38 +8,52 @@ export class FactoryApiService {
 
   constructor(private http: Http) {}
 
-  getList() {
-    return this.http.get(`${this.BASE_URL}/arms-factory`)
+  add(factory) {
+    return this.http
+      .post(`${this.BASE_URL}/arms-factory`, factory)
       .toPromise()
       .then((res: Response) => res.json())
-      .catch((error) => {
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  getList() {
+    return this.http
+      .get(`${this.BASE_URL}/arms-factory`)
+      .toPromise()
+      .then((res: Response) => res.json())
+      .catch(error => {
         console.log(error);
       });
   }
 
   get(id) {
-    return this.http.get(`${this.BASE_URL}/arms-factory/${id}`)
+    return this.http
+      .get(`${this.BASE_URL}/arms-factory/${id}`)
       .toPromise()
       .then((res: Response) => res.json())
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
 
   remove(id) {
-    return this.http.delete(`${this.BASE_URL}/arms-factory/${id}`)
+    return this.http
+      .delete(`${this.BASE_URL}/arms-factory/${id}`)
       .toPromise()
       .then((res: Response) => res.json())
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
 
-  add(factory) {
-    return this.http.post(`${this.BASE_URL}/arms-factory`, factory)
-    .toPromise()
+  update(factory) {
+    return this.http
+      .put(`${this.BASE_URL}/arms-factory/${factory._id}`, factory)
+      .toPromise()
       .then((res: Response) => res.json())
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }

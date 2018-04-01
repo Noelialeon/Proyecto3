@@ -30,6 +30,8 @@ import { MapComponent } from './components/map/map.component';
 import { NewsComponent } from './components/news/news.component';
 import { AddFactoryFormComponent} from './components/add-factory-form/add-factory-form.component';
 import { ListFactoriesComponent } from './components/list-factories/list-factories.component';
+import { EditFactoryFormComponent } from './components/edit-factory-form/edit-factory-form.component';
+import { FactoryCardComponent } from './components/factory-card/factory-card.component';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -70,6 +72,8 @@ const routes: Routes = [
     AddFactoryFormComponent,
     NewsComponent,
     ListFactoriesComponent,
+    EditFactoryFormComponent,
+    FactoryCardComponent,
   ],
   imports: [
     // MapModule.forRoot(),

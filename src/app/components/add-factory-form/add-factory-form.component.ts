@@ -21,10 +21,10 @@ export class AddFactoryFormComponent implements OnInit {
     // this.add.emit(this.factory);
   }
 
-
   showList() {
     this.factoryApi.getList()
     .then( (res) => console.log('All the factories are', res));
   }
+
 }
 

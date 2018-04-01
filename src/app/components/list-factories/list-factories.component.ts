@@ -28,18 +28,15 @@ export class ListFactoriesComponent implements OnInit {
   showList() {
     this.factoryApi.getList().then(res => {
       this.factories = res;
-      console.log('Response is', res);
-      console.log('All the factories are', this.factories);
     });
   }
 
-  deleteItem(factory) {
-    this.factoryApi.get(factory._id)
-    .then((selectedFactory) => {
+  delete(factory) {
+    this.factoryApi
+      .get(factory._id)
+      .then(selectedFactory => {
         this.factory = selectedFactory;
-        this.factoryApi.remove(this.factory._id)
-        .then(() => {
-          console.log('factories without removed one', this.factories);
+        this.factoryApi.remove(this.factory._id).then(() => {
           this.showList();
         });
       })
