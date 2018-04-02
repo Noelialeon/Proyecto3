@@ -23,6 +23,7 @@ import { PrivateComponent } from './pages/private/private.component';
 
 // Services
 import { FactoryApiService } from './services/factory-api.service';
+import { BuyerCountriesApiService } from './services/buyer-countries-api/buyer-countries-api.service';
 // import { MapServiceProviderFactory } from '../app/services/map.service';
 
 // Components
@@ -33,6 +34,7 @@ import { AddFactoryFormComponent} from './components/add-factory-form/add-factor
 import { ListFactoriesComponent } from './components/list-factories/list-factories.component';
 import { EditFactoryFormComponent } from './components/edit-factory-form/edit-factory-form.component';
 import { FactoryCardComponent } from './components/factory-card/factory-card.component';
+import { CountryExportsComponent } from './components/country-exports/country-exports.component';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -77,6 +79,7 @@ const routes: Routes = [
     EditFactoryFormComponent,
     FactoryCardComponent,
     CompanyPageComponent,
+    CountryExportsComponent,
   ],
   imports: [
     // MapModule.forRoot(),
@@ -92,6 +95,7 @@ const routes: Routes = [
     RequireAnonGuardService,
     InitAuthGuardService,
     FactoryApiService,
+    BuyerCountriesApiService
   //   {
   //     provide: MapAPILoader, deps: [], useFactory: MapServiceProviderFactory
   // }
