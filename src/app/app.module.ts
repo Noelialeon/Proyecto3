@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
 import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-login-page-component.component';
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
+import { CompanyPageComponent } from './pages/company-page/company-page.component';
 import { AuthService } from './services/auth.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
@@ -58,6 +59,7 @@ const routes: Routes = [
     canActivate: [RequireAnonGuardService]
   },
   { path: 'private-profile',  component: PrivateComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'company/:id',  component: CompanyPageComponent , canActivate: [ RequireUserGuardService ] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -74,6 +76,7 @@ const routes: Routes = [
     ListFactoriesComponent,
     EditFactoryFormComponent,
     FactoryCardComponent,
+    CompanyPageComponent,
   ],
   imports: [
     // MapModule.forRoot(),

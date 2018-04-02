@@ -11,13 +11,14 @@ export class FactoryCardComponent implements OnInit {
   @Output() delete = new EventEmitter<string>();
   @Input() factory;
 
-  constructor( private factoryApi: FactoryApiService ) { }
+  constructor(private factoryApi: FactoryApiService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   deleteItem(factory) {
-    this.delete.emit(factory);
+    if (confirm('Are you sure?')) {
+      this.delete.emit(factory);
+    }
   }
 
   showForm() {

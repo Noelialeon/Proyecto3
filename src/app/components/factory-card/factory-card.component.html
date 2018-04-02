@@ -1,6 +1,8 @@
 <div class="card">
   <div class="img-card">
-    <img src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
+    <a [routerLink]="['/company', factory._id]">
+      <img src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'" (click)="['/private-profile']">
+      </a>
   </div>
   <div class="card-content p-3">
     <div *ngIf="!editing">

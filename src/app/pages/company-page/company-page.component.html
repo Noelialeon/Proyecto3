@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-md-2">
+            <img src="{{factory.image}}"class="img-no-padding img-responsive">
+          </div>
+          <div class="col-md-8">
+            <h1>
+              {{factory.companyName}}
+            </h1>
+            <div id="address" class="h5">Dirección: {{factory.address}}, {{factory.zipcode}}, {{factory.country}}
+            </div>
+            <p>{{factory.activity}}</p>
+            <!-- <div class="h5" id="website">
+                  Website:
+                  <a href="http://{{factory.url}}">
+                    {{factory.url}}
+                  </a>
+                </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div id="map-profile" class="map-profile" style="width:50px; height: 100px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASqvdUmBMrb4nRgdJfkT7WlhOGA1VKTOw"></script> -->
