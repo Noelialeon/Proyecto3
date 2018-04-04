@@ -1,8 +1,13 @@
 <p>Related activity of {{exportCountry}}:</p>
 
+<div *ngIf="loading">
+  <span class="username text">loading...</span>
+</div>
+<div *ngIf="!loading">
+  <div *ngFor="let buyerCountry of allCountries">
+    <p>sells to {{buyerCountry.destinationCountry}} valued in €{{ buyerCountry.value | number | shortNumber }}€
+    <p>sells to {{buyerCountry.destinationCountry}} valued in rude {{ buyerCountry.value | number }}
 
-<div *ngFor="let buyerCountry of allCountries">
-  <p>sells to
-    {{buyerCountry.destinationCountry}} valued in {{buyerCountry.value}}€
-  </p>
+    </p>
+  </div>
 </div>

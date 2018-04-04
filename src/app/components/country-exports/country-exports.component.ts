@@ -1,15 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BuyerCountriesApiService } from '../../services/buyer-countries-api/buyer-countries-api.service';
+import { DecimalPipe } from '@angular/common';
+import { ShortNumberPipe } from '../../pipes/short-number.pipe';
 
 @Component({
   selector: 'app-country-exports',
   templateUrl: './country-exports.component.html',
-  styleUrls: ['./country-exports.component.css']
+  styleUrls: ['./country-exports.component.css'],
 })
 export class CountryExportsComponent implements OnInit {
   @Input() exportCountry: String;
   countries: any;
   allCountries: any = [];
+  loading: Boolean = true;
 
   constructor(private buyerCountriesApi: BuyerCountriesApiService) {}
 
@@ -29,7 +32,7 @@ export class CountryExportsComponent implements OnInit {
             this.allCountries.push(res[i]);
           }
         }
-        console.log(this.allCountries);
+        this.loading = false;
       })
       .catch(err => console.log(err));
   }

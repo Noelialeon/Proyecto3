@@ -35,6 +35,7 @@ import { ListFactoriesComponent } from './components/list-factories/list-factori
 import { EditFactoryFormComponent } from './components/edit-factory-form/edit-factory-form.component';
 import { FactoryCardComponent } from './components/factory-card/factory-card.component';
 import { CountryExportsComponent } from './components/country-exports/country-exports.component';
+import { ShortNumberPipe } from './pipes/short-number.pipe';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -80,6 +81,7 @@ const routes: Routes = [
     FactoryCardComponent,
     CompanyPageComponent,
     CountryExportsComponent,
+    ShortNumberPipe,
   ],
   imports: [
     // MapModule.forRoot(),
