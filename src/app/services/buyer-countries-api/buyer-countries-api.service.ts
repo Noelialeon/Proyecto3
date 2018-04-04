@@ -6,24 +6,16 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BuyerCountriesApiService {
-  configUrl = 'assets/export.json';
 
-  selectedCountries: any;
-  allCountries: any;
+  private API_URL = 'http://localhost:3000/buyerCountries';
 
-  constructor(private http: Http) {}
+  constructor(private http: Http
+  ) {}
 
   getList() {
     return this.http
-      .get(this.configUrl)
+    .get(`${this.API_URL}`)
       .toPromise()
-      .then(res => res.json())
-      .then(res => (this.allCountries = res));
+      .then(res => res.json());
   }
-
-  // filterByCountry(country) {
-  //   return this.allCountries.filter(
-  //     factory => factory.sourceCountry === country
-  //   );
-  // }
 }

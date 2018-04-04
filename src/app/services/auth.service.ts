@@ -30,7 +30,7 @@ export class AuthService {
       .toPromise()
       .then((user) => this.setUser(user))
       .catch((err) => {
-        if (err.status === 404) {
+        if (err.status === 401) {
           this.setUser();
         }
       });

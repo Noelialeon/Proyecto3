@@ -26,6 +26,7 @@ export class AuthLoginPageComponent implements OnInit {
       .login(this.formInfo)
       .then(user => {
         this.user = user;
+        this.router.navigate(['/private-profile']);
       })
       .catch((error) => {
         console.log('login error', error);
