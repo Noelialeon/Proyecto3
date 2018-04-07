@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row align-items-center">
           <div class="col-md-2">
-            <img src="{{factory.image}}"class="img-no-padding img-responsive">
+            <img src="{{factory.image}}" class="img-no-padding img-responsive">
           </div>
           <div class="col-md-8">
             <h1>
@@ -27,6 +27,8 @@
       </div>
     </div>
   </div>
-  <app-country-exports [exportCountry]="factory.country"></app-country-exports>
+  <div *ngIf="factory.country">
+    <app-country-exports [exportCountry]="factory.country"></app-country-exports>
+  </div>
 </div>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASqvdUmBMrb4nRgdJfkT7WlhOGA1VKTOw"></script> -->

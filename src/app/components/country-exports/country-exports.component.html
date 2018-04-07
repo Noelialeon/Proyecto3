@@ -5,9 +5,8 @@
 </div>
 <div *ngIf="!loading">
   <div *ngFor="let buyerCountry of allCountries">
-    <p>sells to {{buyerCountry.destinationCountry}} valued in €{{ buyerCountry.value | number | shortNumber }}€
-    <p>sells to {{buyerCountry.destinationCountry}} valued in rude {{ buyerCountry.value | number }}
-
+    <p>sells to {{buyerCountry.destinationCountry}} valued in €{{ buyerCountry.value | number | shortNumber}}
+      <!--shortNumber }} -->
     </p>
   </div>
 </div>

@@ -8,13 +8,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class EditFactoryFormComponent implements OnInit {
   @Input() factory: any;
   @Output() update = new EventEmitter<string>();
-
   constructor() { }
 
   ngOnInit() {
   }
 
   edit(factory) {
+    console.log(factory);
     this.update.emit(factory);
   }
 }

@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortNumberPipe implements PipeTransform {
   transform(value: any, args?: any): any {
+    value = value.toString();
     if (value.length === 0) {
       return 0;
     } else {
