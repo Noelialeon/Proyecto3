@@ -1,12 +1,9 @@
 
-/// <reference path='../../node_modules/bingmaps/scripts/MicrosoftMaps/Microsoft.Maps.All.d.ts'/>
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-// import { MapModule, MapAPILoader, BingMapAPILoaderConfig, BingMapAPILoader, WindowRef,
-//   DocumentRef, MapServiceFactory, BingMapServiceFactory } from 'angular-maps';
+import { AgmCoreModule } from '@agm/core';
 
 // Auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
@@ -24,18 +21,17 @@ import { PrivateComponent } from './pages/private/private.component';
 // Services
 import { FactoryApiService } from './services/factory-api.service';
 import { BuyerCountriesApiService } from './services/buyer-countries-api/buyer-countries-api.service';
-// import { MapServiceProviderFactory } from '../app/services/map.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { MapComponent } from './components/map/map.component';
 import { NewsComponent } from './components/news/news.component';
-import { AddFactoryFormComponent} from './components/add-factory-form/add-factory-form.component';
+import { AddFactoryFormComponent } from './components/add-factory-form/add-factory-form.component';
 import { ListFactoriesComponent } from './components/list-factories/list-factories.component';
 import { EditFactoryFormComponent } from './components/edit-factory-form/edit-factory-form.component';
 import { FactoryCardComponent } from './components/factory-card/factory-card.component';
 import { CountryExportsComponent } from './components/country-exports/country-exports.component';
 import { ShortNumberPipe } from './pipes/short-number.pipe';
+import { MapsComponent } from './components/maps/maps.component';
 
 // const routes: Routes = [
 //   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -61,8 +57,16 @@ const routes: Routes = [
     component: AuthLoginPageComponent,
     canActivate: [RequireAnonGuardService]
   },
-  { path: 'private-profile',  component: PrivateComponent , canActivate: [ RequireUserGuardService ] },
-  { path: 'company/:id',  component: CompanyPageComponent , canActivate: [ RequireUserGuardService ] },
+  {
+    path: 'private-profile',
+    component: PrivateComponent,
+    canActivate: [RequireUserGuardService]
+  },
+  {
+    path: 'company/:id',
+    component: CompanyPageComponent,
+    canActivate: [RequireUserGuardService]
+  },
   { path: '**', redirectTo: '' }
 ];
 
@@ -73,7 +77,6 @@ const routes: Routes = [
     AuthLoginPageComponent,
     AuthSignupPageComponent,
     PrivateComponent,
-    MapComponent,
     AddFactoryFormComponent,
     NewsComponent,
     ListFactoriesComponent,
@@ -82,14 +85,17 @@ const routes: Routes = [
     CompanyPageComponent,
     CountryExportsComponent,
     ShortNumberPipe,
+    MapsComponent
   ],
   imports: [
-    // MapModule.forRoot(),
     BrowserModule,
     HttpModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs'
+    })
   ],
   providers: [
     AuthService,
@@ -98,11 +104,7 @@ const routes: Routes = [
     InitAuthGuardService,
     FactoryApiService,
     BuyerCountriesApiService
-  //   {
-  //     provide: MapAPILoader, deps: [], useFactory: MapServiceProviderFactory
-  // }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
-
+export class AppModule {}
