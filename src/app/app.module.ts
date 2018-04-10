@@ -2,10 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule, MapsAPILoader, AgmMarker } from '@agm/core';
 
-// Auth
+// Pages and auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
 import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-login-page-component.component';
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
@@ -32,14 +32,6 @@ import { FactoryCardComponent } from './components/factory-card/factory-card.com
 import { CountryExportsComponent } from './components/country-exports/country-exports.component';
 import { ShortNumberPipe } from './pipes/short-number.pipe';
 import { MapsComponent } from './components/maps/maps.component';
-
-// const routes: Routes = [
-//   { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
-//   { path: 'login',  component: AuthLoginPageComponent, canActivate: [ RequireAnonGuardService ] },
-//   { path: 'signup',  component: AuthSignupPageComponent, canActivate: [ RequireAnonGuardService ] },
-//   // { path: 'page',  component: ... , canActivate: [ RequireUserGuardService ] },
-//   { path: '**', redirectTo: '' }
-// ];
 
 const routes: Routes = [
   {
@@ -91,10 +83,12 @@ const routes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs'
+      apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs',
+      libraries: ['places']
     })
   ],
   providers: [
@@ -103,7 +97,7 @@ const routes: Routes = [
     RequireAnonGuardService,
     InitAuthGuardService,
     FactoryApiService,
-    BuyerCountriesApiService
+    BuyerCountriesApiService,
   ],
   bootstrap: [AppComponent]
 })
