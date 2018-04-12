@@ -28,5 +28,6 @@ export class FactoryCardComponent implements OnInit {
   updateFactory(factory) {
     this.factoryApi.update(factory);
     this.editing = false;
+    console.log(factory);
   }
 }

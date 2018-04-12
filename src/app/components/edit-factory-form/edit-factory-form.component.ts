@@ -29,30 +29,29 @@ export class EditFactoryFormComponent implements OnInit {
 
   edit(factory) {
     const address = `${factory.address} ${factory.zipcode} ${factory.country}`;
-    // console.log(factory, address);
-    this.getAddress(address);
-    this.update.emit(factory);
-  }
 
-  getAddress(address: string) {
-    this.mapsAPILoader.load().then(() => {
-      const geocoder = new google.maps.Geocoder().geocode(
+    this.mapsAPILoader
+    .load()
+    .then(() => {
+      const geocoder = new google.maps.Geocoder()
+      .geocode(
         { address: address },
         function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
-            // this.factory.lat = results[0].geometry.location.lat();
-            // this.factory.long = results[0].geometry.location.lng();
-
-            console.log(
-              results[0].geometry.location.lat(),
-              results[0].geometry.location.lng()
-            );
-          } else {
-            console.log('Error - ', results, ' & Status - ', status);
+            factory.lat = results[0].geometry.location.lat();
+            factory.long = results[0].geometry.location.lng();
+            // console.log(
+            //   factory,
+            //   results[0].geometry.location.lat(),
+            //   results[0].geometry.location.lng()
+            // );
           }
         }
       );
-    });
+    })
+    .catch((err) => console.log(err));
+    this.update.emit(factory);
   }
+}
 
 }

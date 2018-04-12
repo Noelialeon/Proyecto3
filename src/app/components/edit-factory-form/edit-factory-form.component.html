@@ -40,9 +40,10 @@
       <option value="Croatia">Croatia</option>
     </select>
   </p>
-  <p>Address:
+  <p>Street:
     <input type="text" class="form-control" name="address" placeholder="{{factory.address}}" [(ngModel)]="factory.address">
-    <input type="text" class="form-control" name="zipcode" placeholder="{{factory.zipcode}}" [(ngModel)]="factory.zipcode">
+  </p>
+  <p>Zipcode:<input type="text" class="form-control" name="zipcode" placeholder="{{factory.zipcode}}" [(ngModel)]="factory.zipcode">
   </p>
   <button type="submit" class="btn btn-block" (click)="edit(factory)">Save changes</button>
 </div>
