@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { AgmCoreModule, MapsAPILoader, AgmMarker } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader, AgmMarker, MarkerManager } from '@agm/core';
 
 // Pages and auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
@@ -20,6 +20,7 @@ import { PrivateComponent } from './pages/private/private.component';
 
 // Services
 import { FactoryApiService } from './services/factory-api.service';
+
 import { BuyerCountriesApiService } from './services/buyer-countries-api/buyer-countries-api.service';
 
 // Components

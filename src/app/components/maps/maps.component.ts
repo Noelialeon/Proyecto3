@@ -1,9 +1,26 @@
-import { Component, ElementRef, NgModule, NgZone, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  NgModule,
+  NgZone,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { google } from 'google-maps';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import {
+  AgmCoreModule,
+  MapsAPILoader,
+} from '@agm/core';
+// import { Marker } from '@agm/core/services/google-maps-types';
 
+interface Marker {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+}
 
 @Component({
   selector: 'app-maps',
@@ -17,9 +34,15 @@ export class MapsComponent implements OnInit {
   public zoom: number;
   public google: google;
 
+  markers: Marker[] = [
+    {
+      lat: 41.1188827,
+      lng: 1.2444908999999598,
+      label: 'A',
+      draggable: true
+    }];
 
-  @ViewChild('search')
-  public searchElementRef: ElementRef;
+  @ViewChild('search') public searchElementRef: ElementRef;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
@@ -62,10 +85,7 @@ export class MapsComponent implements OnInit {
         });
       });
     });
-  }
-
-    // Add marker
-
+}
 
   private setCurrentPosition() {
     if ('geolocation' in navigator) {
