@@ -4,7 +4,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  NgZone
 } from '@angular/core';
 // import { CompaniesCoordinatesService } from '../../services/companies-coordinates/companies-coordinates.service';
 import { AgmCoreModule, MapsAPILoader } from '@agm/core';
@@ -24,7 +23,7 @@ export class EditFactoryFormComponent implements OnInit {
   lng: number;
   public google: google;
 
-  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {}
+  constructor(private mapsAPILoader: MapsAPILoader) {}
   ngOnInit() {}
 
   edit(factory) {
@@ -36,22 +35,16 @@ export class EditFactoryFormComponent implements OnInit {
       const geocoder = new google.maps.Geocoder()
       .geocode(
         { address: address },
-        function(results, status) {
+        (results, status) => {
           if (status === google.maps.GeocoderStatus.OK) {
-            factory.lat = results[0].geometry.location.lat();
-            factory.long = results[0].geometry.location.lng();
-            // console.log(
-            //   factory,
-            //   results[0].geometry.location.lat(),
-            //   results[0].geometry.location.lng()
-            // );
+            this.factory.lat = results[0].geometry.location.lat();
+            this.factory.long = results[0].geometry.location.lng();
+            this.update.emit(this.factory);
           }
         }
       );
     })
     .catch((err) => console.log(err));
-    this.update.emit(factory);
   }
 }
 
-}
