@@ -9,10 +9,8 @@ import {
 import { google } from 'google-maps';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  AgmCoreModule,
-  MapsAPILoader,
-} from '@agm/core';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { FactoryApiService } from '../../services/factory-api.service';
 // import { Marker } from '@agm/core/services/google-maps-types';
 
 interface Marker {
@@ -33,20 +31,16 @@ export class MapsComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
   public google: google;
+  public factories;
 
-  markers: Marker[] = [
-    {
-      lat: 41.1188827,
-      lng: 1.2444908999999598,
-      label: 'A',
-      draggable: true
-    }];
+  markers: Marker[] = [];
 
   @ViewChild('search') public searchElementRef: ElementRef;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
+    private factoryApi: FactoryApiService
   ) {}
 
   ngOnInit() {
@@ -82,10 +76,11 @@ export class MapsComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 10;
+          this.chargePins();
         });
       });
     });
-}
+  }
 
   private setCurrentPosition() {
     if ('geolocation' in navigator) {
@@ -95,5 +90,21 @@ export class MapsComponent implements OnInit {
         this.zoom = 10;
       });
     }
+  }
+
+  private chargePins() {
+    this.factoryApi.getList().then(res => {
+      this.factories = res;
+      this.factories.forEach(factory => {
+        const currentMarker: Marker = {
+          lat: factory.lat,
+          lng: factory.long,
+          label: factory.companyName,
+          draggable: true
+        };
+        this.markers.push(currentMarker);
+      });
+      console.log('factories are', this.markers, this.factories);
+    });
   }
 }
