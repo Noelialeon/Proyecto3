@@ -1,0 +1,39 @@
+body{
+  color: white;
+}
+
+.peach-gradient {
+  background: -webkit-linear-gradient(50deg,#ffd86f,#fc6262)!important;
+  background: -o-linear-gradient(50deg,#ffd86f,#fc6262)!important;
+  background: linear-gradient(40deg,#ffd86f,#fc6262)!important;
+}
+
+.btn {
+  padding: .84rem 2.14rem;
+  font-size: 12px;
+  font-weight: 500;
+
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  margin: .375rem;
+  border: 0;
+  -webkit-border-radius: .125rem;
+  border-radius: .125rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: normal;
+  word-wrap: break-word;
+  color: #fff;
+}
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+}

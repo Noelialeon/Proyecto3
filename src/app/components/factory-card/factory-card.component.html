@@ -1,32 +1,36 @@
-<div class="card">
-  <div class="img-card">
+<div class="card elegant-color">
+  <div class="view overlay" rel="noopener noreferrer" target="_blank">
     <a [routerLink]="['/company', factory._id]">
-      <img src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'" (click)="['/private-profile']">
-      </a>
+      <img class="card-img-top" src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'" (click)="['/private-profile']">
+    </a>
   </div>
-  <div class="card-content p-3">
+  <div class="card-body elegant-color white-text rounded-bottom">
     <div *ngIf="!editing">
-      <h4 class="card-title" style="margin-bottom:0px">
-        <strong>Factory: {{factory.companyName}}</strong>
+      <h4 class="card-title">
+        Factory: {{factory.companyName}}
       </h4>
       <small class="text-muted">Updated at: {{ factory.updated_at | date:'medium'}}</small>
-      <div class="card-text" style="margin-top:10px">
+      <hr class="hr-light">
+      <div class="card-text white-text mb-4">
         <p>Activity: {{ factory.activity }}</p>
         <p>Billing: {{ factory.billing }} M€</p>
         <p>Country: {{ factory.country }}</p>
         <p>Address: {{ factory.address }}</p>
       </div>
     </div>
+
     <div *ngIf="editing">
       <app-edit-factory-form [factory]="factory" (update)="updateFactory($event)"></app-edit-factory-form>
     </div>
   </div>
   <div *ngIf="!editing" class="card-read-more p-3">
-    <button class="btn btn-block" (click)="showForm()">
-      Edit info
-    </button>
-    <div class="btn btn-link btn-block" (click)="deleteItem(factory)">
-      Delete factory
+    <div class="text-center mt-3">
+      <button class="btn peach-gradient btn-rounded" (click)="showForm()">
+        Edit info
+      </button>
+      <div class="btn btn-link-white white-text" (click)="deleteItem(factory)">
+        Delete factory
+      </div>
     </div>
   </div>
 </div>

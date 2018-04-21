@@ -1,32 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 mx-auto">
+    <div class="col-sm-6 mx-auto">
       <div class="card-register mx-auto">
         <div class="card-body">
-          <h3 class="card-title">Sign up</h3>
+          <h3 class="card-title">Log in</h3>
           <form>
-            <div class="form-group">
-              <label> Username </label>
-              <input class="form-control" type="text" [(ngModel)]="formInfo.username" name="username" />
+
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <input type="email" [(ngModel)]="formInfo.username" name="username" placeholder="Username" id="materialFormLoginNameEx" class="form-control">
             </div>
 
-            <div class="form-group">
-              <label> Password </label>
-              <input class="form-control" type="password" [(ngModel)]="formInfo.password" name="password" />
+            <!-- Material input password -->
+            <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <input type="password" [(ngModel)]="formInfo.password" name="password" placeholder="Your password"id="materialFormLoginPasswordEx" class="form-control">
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <button class="btn btn-register btn-primary btn-block" (click)="login()"> login </button>
-              </div>
 
-              <div class="form-group col-md-6">
-                <button class="btn btn-register btn-primary btn-block" (click)="signup()"> signup </button>
-              </div>
+            <div class="text-center mt-3">
+              <button class="btn peach-gradient btn-rounded" (click)="login()">Log in</button>
             </div>
           </form>
         </div>
       </div>
+      <p class="error"> {{ error }} </p>
     </div>
   </div>
-  <p class="error"> {{ error | json }} </p>
 </div>

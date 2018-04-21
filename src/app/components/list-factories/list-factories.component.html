@@ -1,7 +1,8 @@
+<div class="container mt-5">
 <hr>
 <h5> Your research contains the following factories: </h5>
 <div class="row">
-  <div class="col-xs-12 col-sm-4 mt-2" *ngFor="let factory of factories">
+  <div class="col-xs-12 col-sm-4" *ngFor="let factory of factories">
     <app-factory-card  [factory]="factory" (delete)="delete($event)"></app-factory-card>
   </div>
 </div>

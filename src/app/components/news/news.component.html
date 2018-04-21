@@ -3,29 +3,31 @@
   <hr>
   <div class="row">
     <div class="col-xs-12 col-sm-4" *ngFor="let new of allNews">
-      <div class="card">
-        <a class="img-card" target="_blank" href="{{new.url}}">
-          <img src="{{ new.urlToImage }}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
-        </a>
-        <div class="card-content">
-          <h4 class="card-title" style="margin-bottom:0px">
-            <a target="_blank" href="{{new.url}}">
-              <strong>{{new.title}}</strong>
-            </a>
-          </h4>
-          <small class="text-muted-black" >{{new.source.name}}</small>
-          <div class="card-text" style="margin-top:10px">
-            <a target="_blank" href="{{new.url}}">
-              {{new.description}}
-            </a>
-          </div>
-          <p class="card-text">
-            <small class="text-muted">{{new.publishedAt | date:'medium'}}</small>
-          </p>
+      <div class="card elegant-color">
+        <div class="view overlay" rel="noopener noreferrer" target="_blank">
+          <a href="{{new.url}}">
+            <img class="card-img-top" src="{{ new.urlToImage }}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
+            <div class="mask rgba-white-slight"></div>
+          </a>
         </div>
-        <div class="card-read-more">
-          <a class="btn btn-link btn-block" href="{{new.url}}">
-            Read More
+        <div class="card-body elegant-color white-text rounded-bottom">
+          <h4 class="card-title">
+            {{new.title}}
+          </h4>
+          <small class="text-muted-white">
+            <a href='{{new.url}}' class="text-white">
+              {{new.source.name}}
+            </a>
+          </small>
+          <hr class="hr-light">
+          <div class="card-text white-text mb-4">
+            {{new.description | wordLength : 175}}
+          </div>
+          <small class="text-muted">{{new.publishedAt | date:'medium'}}</small>
+          <a href="{{new.url}}" class="white-text d-flex justify-content-end">
+            <h5>Read more
+              <i class="fa fa-angle-double-right"></i>
+            </h5>
           </a>
         </div>
       </div>
@@ -34,3 +36,4 @@
   <small>
     Powered by newsapi.org
   </small>
+</div>

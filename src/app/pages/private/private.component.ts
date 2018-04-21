@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FactoryApiService } from '../../services/factory-api.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-private',
@@ -10,8 +12,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class PrivateComponent implements OnInit {
   user;
+  closeResult: string;
 
   constructor(
+    private modalService: NgbModal,
     private session: AuthService,
     private factoryApi: FactoryApiService,
     private router: Router
@@ -20,4 +24,5 @@ export class PrivateComponent implements OnInit {
   ngOnInit() {
     this.user = this.session.getUser();
   }
+
 }

@@ -12,13 +12,13 @@
         <div class="col-md-6 ml-auto mr-auto text-center">
           <h5>Some text about {{this.user.username}}</h5>
           <br />
-          <!-- <a href="/users/edit" class="btn btn-outline-default btn-round">Editar perfil</a> -->
+          <a class="btn peach-gradient btn-rounded white-text" [routerLink]="['/add-factory']">Add a factory</a>
         </div>
+        <!-- <a href="/users/edit" class="btn btn-outline-default btn-round">Editar perfil</a> -->
       </div>
     </div>
   </div>
 
 <app-list-factories></app-list-factories>
-<app-add-factory-form></app-add-factory-form>
 
 </div>

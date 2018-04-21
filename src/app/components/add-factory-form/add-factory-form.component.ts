@@ -4,6 +4,7 @@ import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 import { google } from 'google-maps';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-factory-form',
@@ -11,12 +12,14 @@ import { Observer } from 'rxjs/Observer';
   styleUrls: ['./add-factory-form.component.css']
 })
 export class AddFactoryFormComponent {
-  @Output() add = new EventEmitter<string>();
+  // @Output() add = new EventEmitter<string>();
   factory: any = {};
 
   constructor(
     private factoryApi: FactoryApiService,
-    private mapsAPILoader: MapsAPILoader
+    private mapsAPILoader: MapsAPILoader,
+    private router: Router,
+
   ) {}
 
   addItem() {
@@ -35,6 +38,7 @@ export class AddFactoryFormComponent {
               this.factory.long = results[0].geometry.location.lng();
             }
             this.factoryApi.add(this.factory).then(res => {});
+            this.router.navigate(['/private-profile']);
           }
         );
       })

@@ -10,6 +10,8 @@ import { HomePageComponent } from './pages/home-page-component/home-page-compone
 import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-login-page-component.component';
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
 import { CompanyPageComponent } from './pages/company-page/company-page.component';
+import { AddFactoryPageComponent } from './pages/add-factory-page/add-factory-page/add-factory-page.component';
+
 import { AuthService } from './services/auth.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
@@ -20,7 +22,6 @@ import { PrivateComponent } from './pages/private/private.component';
 
 // Services
 import { FactoryApiService } from './services/factory-api.service';
-
 import { BuyerCountriesApiService } from './services/buyer-countries-api/buyer-countries-api.service';
 
 // Components
@@ -32,7 +33,10 @@ import { EditFactoryFormComponent } from './components/edit-factory-form/edit-fa
 import { FactoryCardComponent } from './components/factory-card/factory-card.component';
 import { CountryExportsComponent } from './components/country-exports/country-exports.component';
 import { ShortNumberPipe } from './pipes/short-number.pipe';
+import { WordLengthPipe } from './pipes/word-length.pipe';
 import { MapsComponent } from './components/maps/maps.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -47,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    component: AuthLoginPageComponent,
+    component: AuthSignupPageComponent,
     canActivate: [RequireAnonGuardService]
   },
   {
@@ -58,6 +62,11 @@ const routes: Routes = [
   {
     path: 'company/:id',
     component: CompanyPageComponent,
+    canActivate: [RequireUserGuardService]
+  },
+  {
+    path: 'add-factory',
+    component: AddFactoryPageComponent,
     canActivate: [RequireUserGuardService]
   },
   { path: '**', redirectTo: '' }
@@ -78,7 +87,9 @@ const routes: Routes = [
     CompanyPageComponent,
     CountryExportsComponent,
     ShortNumberPipe,
-    MapsComponent
+    MapsComponent,
+    AddFactoryPageComponent,
+    WordLengthPipe
   ],
   imports: [
     BrowserModule,
@@ -86,6 +97,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs',

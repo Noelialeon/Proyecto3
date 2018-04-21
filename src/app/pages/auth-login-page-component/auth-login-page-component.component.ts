@@ -12,7 +12,6 @@ export class AuthLoginPageComponent implements OnInit {
     username: '',
     password: ''
   };
-
   user: any;
   error: string;
 
@@ -29,16 +28,8 @@ export class AuthLoginPageComponent implements OnInit {
         this.router.navigate(['/private-profile']);
       })
       .catch((error) => {
-        console.log('login error', error);
-        this.error = error;
+        this.error = "Please, enter a valid username and password";
       });
-  }
-
-  signup() {
-    this.session
-      .signup(this.formInfo)
-      .then(user => (this.user = user))
-      .catch(err => (this.error = err));
   }
 
   ngOnInit() {

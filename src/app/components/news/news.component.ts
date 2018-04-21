@@ -11,11 +11,7 @@ import { DatePipe } from '@angular/common';
 })
 export class NewsComponent implements OnInit {
   allNews: any = [];
-  // news = {
-  //   status: '',
-  //   totalResults: 0,
-  //   articles: [],
-  // };
+
   latestNews: any = [];
 
   constructor(private newsService: NewsService) {}
