@@ -1,49 +1,56 @@
-<div class="card-text" style="margin-top:10px">
-  <p>Company Name</p>
-  <input type="text" class="form-control" name="companyName" placeholder="company name" [(ngModel)]="factory.companyName">
-  <p>Activity:
-    <input type="text" class="form-control" name="activity" placeholder="{{factory.activity}}" [(ngModel)]="factory.activity">
-  </p>
-  <p>Billing:
-    <input type="text" class="form-control" name="billing" placeholder="{{factory.billing}}" [(ngModel)]="factory.billing"> M€
-  </p>
-  <p>Country:
-    <select name="country" [(ngModel)]="factory.country" required>
-      <option value="" selected="selected">{{factory.country}}</option>
-      <option value="Austria">Austria</option>
-      <option value="Belgium">Belgium</option>
-      <option value="Denmark">Denmark</option>
-      <option value="Finland">Finland</option>
-      <option value="France">France</option>
-      <option value="Germany">Germany</option>
-      <option value="Greece">Greece</option>
-      <option value="Ireland">Ireland</option>
-      <option value="Italy">Italy</option>
-      <option value="Luxembourg">Luxembourg</option>
-      <option value="Luxembourg">Belgium</option>
-      <option value="Netherlands">Netherlands</option>
-      <option value="Portugal">Portugal</option>
-      <option value="Spain">Spain</option>
-      <option value="United%20Kingdom">United Kingdom</option>
-      <option value="Czech%20Republic">Czech Republic</option>
-      <option value="Hungary">Hungary</option>
-      <option value="Malta">Malta</option>
-      <option value="Poland">Poland</option>
-      <option value="Slovakia">Slovakia</option>
-      <option value="Slovenia">Slovenia</option>
-      <option value="Cyprus">Cyprus</option>
-      <option value="Estonia">Estonia</option>
-      <option value="Latvia">Latvia</option>
-      <option value="Lithuania">Lithuania</option>
-      <option value="Bulgaria">Bulgaria</option>
-      <option value="Romania">Romania</option>
-      <option value="Croatia">Croatia</option>
-    </select>
-  </p>
-  <p>Street:
-    <input type="text" class="form-control" name="address" placeholder="{{factory.address}}" [(ngModel)]="factory.address">
-  </p>
-  <p>Zipcode:<input type="text" class="form-control" name="zipcode" placeholder="{{factory.zipcode}}" [(ngModel)]="factory.zipcode">
-  </p>
-  <button type="submit" class="btn btn-block" (click)="edit(factory)">Save changes</button>
-</div>
+<form>
+  <div class="md-form">
+    <div>Company Name
+      <input type="text" class="form-control" name="companyName" placeholder="company name" [(ngModel)]="factory.companyName">
+      <div>Activity:
+        <input type="text" class="form-control" name="activity" placeholder="{{factory.activity}}" [(ngModel)]="factory.activity">
+      </div>
+      <div>Billing:
+        <input type="text" class="form-control" name="billing" placeholder="{{factory.billing}} M€" [(ngModel)]="factory.billing">
+      </div>
+      <div>Country:</div>
+      <div>
+        <select name="country" [(ngModel)]="factory.country" required>
+          <option value="" selected="selected">{{factory.country}}</option>
+          <option value="Austria">Austria</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Finland">Finland</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="Greece">Greece</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Italy">Italy</option>
+          <option value="Luxembourg">Luxembourg</option>
+          <option value="Luxembourg">Belgium</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Spain">Spain</option>
+          <option value="United%20Kingdom">United Kingdom</option>
+          <option value="Czech%20Republic">Czech Republic</option>
+          <option value="Hungary">Hungary</option>
+          <option value="Malta">Malta</option>
+          <option value="Poland">Poland</option>
+          <option value="Slovakia">Slovakia</option>
+          <option value="Slovenia">Slovenia</option>
+          <option value="Cyprus">Cyprus</option>
+          <option value="Estonia">Estonia</option>
+          <option value="Latvia">Latvia</option>
+          <option value="Lithuania">Lithuania</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Romania">Romania</option>
+          <option value="Croatia">Croatia</option>
+        </select>
+      </div>
+      <div>Street:
+        <input type="text" class="form-control" name="address" placeholder="{{factory.address}}" [(ngModel)]="factory.address">
+      </div>
+      <div>Zipcode:
+        <input type="text" class="form-control" name="zipcode" placeholder="{{factory.zipcode}}" [(ngModel)]="factory.zipcode">
+      </div>
+      <div class="text-center mt-3">
+        <button class="btn peach-gradient btn-rounded" (click)="edit(factory)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -23,8 +23,8 @@ interface Marker {
 @Component({
   selector: 'app-maps',
   templateUrl: 'maps.component.html',
-  styleUrls: ['maps.component.css']
-})
+  styleUrls: ['../../../assets/css/style.css']}
+)
 export class MapsComponent implements OnInit {
   public latitude: number;
   public longitude: number;

@@ -27,7 +27,7 @@ export class AuthSignupPageComponent implements OnInit {
     this.session
       .signup(this.formInfo)
       .then(user => (this.user = user))
-      .catch(err => (this.error = "Please, enter a valid username and password");
+      .catch(err => (this.error = 'Please, enter a valid username and password'));
   }
 
 }
