@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { AgmCoreModule, MapsAPILoader, AgmMarker, MarkerManager } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader, AgmMarker, MarkerManager, GoogleMapsAPIWrapper } from '@agm/core';
 
 // Pages and auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
@@ -89,7 +89,7 @@ const routes: Routes = [
     ShortNumberPipe,
     MapsComponent,
     AddFactoryPageComponent,
-    WordLengthPipe
+    WordLengthPipe,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +101,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs',
-      libraries: ['places']
+      libraries: ['places'],
     })
   ],
   providers: [
@@ -110,8 +110,9 @@ const routes: Routes = [
     RequireAnonGuardService,
     InitAuthGuardService,
     FactoryApiService,
+    GoogleMapsAPIWrapper,
     BuyerCountriesApiService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
