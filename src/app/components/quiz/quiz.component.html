@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div *ngIf=!quizTime>
+    <header>
+      Are you participating in the worlwide arms trade?
+    </header>
+      <a class="btn-next" (click)="showQuiz()">
+        <span class="btn-next-inside">Begin</span>
+      </a>
+  </div>
+
+  <div *ngIf=quizTime>
+      <header>
+          {{currentQuestion.question}}
+        </header>
+  <form class="form-inline justify-content-center mt-4" (click)="nextQuestion()">
+    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+      <label class="container-check" for="answer1">{{currentQuestion.answers[0].answer}}
+        <input type="radio" name="radio" value="{{currentQuestion.answers[0].value}}" id="answer1">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+
+      <label class="container-check" for="answer2">{{currentQuestion.answers[1].answer}}
+        <input type="radio" name="radio" value="{{currentQuestion.answers[1].value}}" id="answer2">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+
+      <label class="container-check" for="answer3">{{currentQuestion.answers[2].answer}}
+        <input type="radio" name="radio" value="{{currentQuestion.answers[2].value}}" id="answer3">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </form>
+</div>

@@ -37,6 +37,7 @@ import { WordLengthPipe } from './pipes/word-length.pipe';
 import { MapsComponent } from './components/maps/maps.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 const routes: Routes = [
   {
@@ -90,6 +91,7 @@ const routes: Routes = [
     MapsComponent,
     AddFactoryPageComponent,
     WordLengthPipe,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,

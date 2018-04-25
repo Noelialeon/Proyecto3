@@ -1,24 +1,21 @@
 <div class="container">
   <div class="section profile-content">
-    <div class="container">
-      <div class="owner">
-        <div class="name">
-          <h4 class="title">Welcome back, {{this.user.username}}
-            <br />
-          </h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 ml-auto mr-auto text-center">
-          <h5>Some text about {{this.user.username}}</h5>
+    <div class="owner">
+      <div class="name">
+        <h4 class="title">Welcome back, {{this.user.username}}
           <br />
-          <a class="btn peach-gradient btn-rounded white-text" [routerLink]="['/add-factory']">Add a factory</a>
-        </div>
-        <!-- <a href="/users/edit" class="btn btn-outline-default btn-round">Editar perfil</a> -->
+        </h4>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto text-center">
+        <h5>Some text about {{this.user.username}}</h5>
+        <br />
+        <a class="btn peach-gradient btn-rounded white-text" [routerLink]="['/add-factory']">Add a factory</a>
+      </div>
+      <!-- <a href="/users/edit" class="btn btn-outline-default btn-round">Editar perfil</a> -->
+    </div>
   </div>
-
-<app-list-factories></app-list-factories>
-
+  <app-list-factories></app-list-factories>
 </div>
+
