@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AgmCoreModule, MapsAPILoader, AgmMarker, MarkerManager, GoogleMapsAPIWrapper } from '@agm/core';
 
 // Pages and auth
@@ -11,18 +13,18 @@ import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-l
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
 import { CompanyPageComponent } from './pages/company-page/company-page.component';
 import { AddFactoryPageComponent } from './pages/add-factory-page/add-factory-page/add-factory-page.component';
-
-import { AuthService } from './services/auth.service';
-import { RequireAnonGuardService } from './guards/require-anon-guard.service';
-import { RequireUserGuardService } from './guards/require-user-guard.service';
-import { InitAuthGuardService } from './guards/init-auth-guard.service';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 import { PrivateComponent } from './pages/private/private.component';
+import { HomeMapComponent } from './pages/home-map/home-map.component';
 
 // Services
 import { FactoryApiService } from './services/factory-api.service';
 import { BuyerCountriesApiService } from './services/buyer-countries-api/buyer-countries-api.service';
+import { AuthService } from './services/auth.service';
+import { RequireAnonGuardService } from './guards/require-anon-guard.service';
+import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { InitAuthGuardService } from './guards/init-auth-guard.service';
+
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -36,7 +38,7 @@ import { ShortNumberPipe } from './pipes/short-number.pipe';
 import { WordLengthPipe } from './pipes/word-length.pipe';
 import { MapsComponent } from './components/maps/maps.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuizComponent } from './components/quiz/quiz.component';
 
 const routes: Routes = [
@@ -70,6 +72,11 @@ const routes: Routes = [
     component: AddFactoryPageComponent,
     canActivate: [RequireUserGuardService]
   },
+  {
+    path: 'home',
+    component: HomeMapComponent,
+    canActivate: [InitAuthGuardService]
+  },
   { path: '**', redirectTo: '' }
 ];
 
@@ -92,6 +99,7 @@ const routes: Routes = [
     AddFactoryPageComponent,
     WordLengthPipe,
     QuizComponent,
+    HomeMapComponent,
   ],
   imports: [
     BrowserModule,

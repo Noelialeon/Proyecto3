@@ -1,37 +1,51 @@
-<div class="wrapper">
-  <div *ngIf=!quizTime>
-    <header>
-      Are you participating in the worlwide arms trade?
-    </header>
+<div class="flex-container">
+  <div class="wrapper">
+    <div *ngIf=!quizTime>
+      <header>
+        Are you participating in the worlwide arms trade?
+      </header>
       <a class="btn-next" (click)="showQuiz()">
         <span class="btn-next-inside">Begin</span>
       </a>
-  </div>
+    </div>
 
-  <div *ngIf=quizTime>
+    <div *ngIf="quizTime && !resultTime">
       <header>
-          {{currentQuestion.question}}
-        </header>
-  <form class="form-inline justify-content-center mt-4" (click)="nextQuestion()">
-    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
-      <label class="container-check" for="answer1">{{currentQuestion.answers[0].answer}}
-        <input type="radio" name="radio" value="{{currentQuestion.answers[0].value}}" id="answer1">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+        {{currentQuestion.question}}
+      </header>
+      <form class="form-inline justify-content-center mt-4" #quizAnswer=ngForm>
 
-      <label class="container-check" for="answer2">{{currentQuestion.answers[1].answer}}
-        <input type="radio" name="radio" value="{{currentQuestion.answers[1].value}}" id="answer2">
-        <span class="checkmark"></span>
-      </label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+          <label class="container-check" for="answer">{{currentQuestion.answers[0].answer}}
+            <input type="radio" name="radio" id="answer" value="{{currentQuestion.answers[0].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[0].value)">
+            <span class="checkmark"></span>
+          </label>
+        </div>
 
-      <label class="container-check" for="answer3">{{currentQuestion.answers[2].answer}}
-        <input type="radio" name="radio" value="{{currentQuestion.answers[2].value}}" id="answer3">
-        <span class="checkmark"></span>
-      </label>
+        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+          <label class="container-check" for="answer1">{{currentQuestion.answers[1].answer}}
+            <input type="radio" name="radio" id="answer1" value="{{currentQuestion.answers[1].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[1].value)">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+          <label class="container-check" for="answer2">{{currentQuestion.answers[2].answer}}
+            <input type="radio" name="radio" id="answer2" value="{{currentQuestion.answers[2].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[2].value)">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </form>
+      <br> Form value: {{ totalResult }}
     </div>
-  </form>
+    <div *ngIf=resultTime>
+      <header>
+        {{quizResult.claim}}
+      </header>
+      <div class="btn-next-inside">{{quizResult.veredict}}</div>
+      <a class="btn-next" [routerLink]="['/home']">
+        <span class="btn-next-inside">Go to map</span>
+      </a>
+    </div>
+  </div>
 </div>

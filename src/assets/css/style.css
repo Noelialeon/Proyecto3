@@ -8,13 +8,16 @@ body {
   background-size: auto 100%;
 }
 
-body {
+.flex-container {
+  background-size: auto 100%;
+  height: 100%;
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: center;
   align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
+  /*solve vertical align*/
 }
 
 .navbar-default {
@@ -66,9 +69,12 @@ body {
 
 /*map page */
 .map-frame {
-  width: 100%;
-  height: 100% !important;
-  position: relative;
+  width: 1000px;
+  height: 800px;
+  text-align: center;
+  font-size: 60px;
+  margin: 0 auto;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out;
 }
 
 agm-map {
@@ -140,18 +146,7 @@ agm-map {
 /* When the checkbox is checked, add a blue background */
 .container-check input:checked ~ .checkmark {
   border: 5px solid black;
-}
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container-check input:checked ~ .checkmark:after {
-  display: block;
 }
 
 .btn-next {

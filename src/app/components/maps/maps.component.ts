@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  NgModule,
-  NgZone,
-  OnInit,
-  ViewChild
-} from '@angular/core';
+import { Component, ElementRef, NgModule, NgZone, OnInit, ViewChild } from '@angular/core';
 import { google } from 'google-maps';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
