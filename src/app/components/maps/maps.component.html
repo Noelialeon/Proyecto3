@@ -1,19 +1,21 @@
-<div class="map-frame">
-  <agm-map #map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="styles" [mapTypeControl]="false"
-    [streetViewControl]="false">
-    <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label">
-      <agm-info-window>
+<div class="container-fluid">
+  <div class="map-frame">
+    <agm-map #map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="styles" [mapTypeControl]="false"
+      [streetViewControl]="false">
+      <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label">
+        <agm-info-window>
 
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
-  <div class="map-content">
-    <div class="container">
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+    <div class="map-content">
+      <div class="container">
 
-      <h1>Find the closest weapon factory</h1>
-      <div class="form-group">
-        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
-          #search [formControl]="searchControl">
+        <h1>Find the closest weapon factory</h1>
+        <div class="form-group">
+          <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+            #search [formControl]="searchControl">
+        </div>
       </div>
     </div>
   </div>

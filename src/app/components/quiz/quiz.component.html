@@ -1,51 +1,56 @@
-<div class="flex-container">
-  <div class="wrapper">
+<div class="container-fluid">
+
+  <div class="row align-items-center quiz" [@visibilityChanged]="visibility">
     <div *ngIf=!quizTime>
       <header>
         Are you participating in the worlwide arms trade?
       </header>
-      <a class="btn-next" (click)="showQuiz()">
+      <a class="btn-next center" (click)="showQuiz()">
         <span class="btn-next-inside">Begin</span>
       </a>
     </div>
+    <div [@visibilityChanged]="visibility">
+      <div style="max-width:800px" *ngIf="quizTime && !resultTime">
+        <p style="font-size: 20px">
+          <small>{{counter}} / {{quiz.length}}</small>
+        </p>
+        <header>
+          {{currentQuestion.question}}
+        </header>
+        <form class="form-inline justify-content-center" #quizAnswer=ngForm>
 
-    <div *ngIf="quizTime && !resultTime">
-      <header>
-        {{currentQuestion.question}}
-      </header>
-      <form class="form-inline justify-content-center mt-4" #quizAnswer=ngForm>
+          <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+            <label class="container-check" for="answer">{{currentQuestion.answers[0].answer}}
+              <input type="radio" name="radio" id="answer" value="{{currentQuestion.answers[0].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[0].value, quizAnswer)">
+              <span class="checkmark"></span>
+            </label>
+          </div>
 
-        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
-          <label class="container-check" for="answer">{{currentQuestion.answers[0].answer}}
-            <input type="radio" name="radio" id="answer" value="{{currentQuestion.answers[0].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[0].value)">
-            <span class="checkmark"></span>
-          </label>
-        </div>
+          <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+            <label class="container-check" for="answer1">{{currentQuestion.answers[1].answer}}
+              <input type="radio" name="radio" id="answer1" value="{{currentQuestion.answers[1].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[1].value, quizAnswer)">
+              <span class="checkmark"></span>
+            </label>
+          </div>
 
-        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
-          <label class="container-check" for="answer1">{{currentQuestion.answers[1].answer}}
-            <input type="radio" name="radio" id="answer1" value="{{currentQuestion.answers[1].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[1].value)">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-
-        <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
-          <label class="container-check" for="answer2">{{currentQuestion.answers[2].answer}}
-            <input type="radio" name="radio" id="answer2" value="{{currentQuestion.answers[2].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[2].value)">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </form>
-      <br> Form value: {{ totalResult }}
-    </div>
-    <div *ngIf=resultTime>
-      <header>
-        {{quizResult.claim}}
-      </header>
-      <div class="btn-next-inside">{{quizResult.veredict}}</div>
-      <a class="btn-next" [routerLink]="['/home']">
-        <span class="btn-next-inside">Go to map</span>
-      </a>
+          <div class="custom-control custom-radio custom-control-inline" style="max-width: 300px">
+            <label class="container-check" for="answer2">{{currentQuestion.answers[2].answer}}
+              <input type="radio" name="radio" id="answer2" value="{{currentQuestion.answers[2].value}}" [(ngModel)]="checkbox" (click)="nextQuestion(currentQuestion.answers[2].value, quizAnswer)">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="mx-w-50" *ngIf=resultTime>
+        <header>
+          {{quizResult.claim}}
+        </header>
+        <h3>{{quizResult.veredict}}</h3>
+        <a class="btn-next" [routerLink]="['/home']">
+          <span class="btn-next-inside">Go to map</span>
+        </a>
+      </div>
     </div>
   </div>
+
 </div>

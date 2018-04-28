@@ -1,5 +1,5 @@
 <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light  ">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
     <a class="navbar-brand" [routerLink]="['/']">I must not think bad thoughts</a>
     <div *ngIf="loading" class="navbar-nav ml-auto navbar-right">
       <span class="username text">loading...</span>

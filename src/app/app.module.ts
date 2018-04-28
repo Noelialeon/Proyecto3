@@ -6,6 +6,7 @@ import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule, MapsAPILoader, AgmMarker, MarkerManager, GoogleMapsAPIWrapper } from '@agm/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Pages and auth
 import { HomePageComponent } from './pages/home-page-component/home-page-component.component';
@@ -24,8 +25,6 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
-
-
 // Components
 import { AppComponent } from './app.component';
 import { NewsComponent } from './components/news/news.component';
@@ -37,9 +36,11 @@ import { CountryExportsComponent } from './components/country-exports/country-ex
 import { ShortNumberPipe } from './pipes/short-number.pipe';
 import { WordLengthPipe } from './pipes/word-length.pipe';
 import { MapsComponent } from './components/maps/maps.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+
+// extras
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { QuizComponent } from './components/quiz/quiz.component';
 
 const routes: Routes = [
   {
@@ -112,7 +113,8 @@ const routes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs',
       libraries: ['places'],
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,

@@ -1,13 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['../../../assets/css/style.css']
+  styleUrls: ['../../../assets/css/style.css'],
+  animations: [
+    trigger('visibilityChanged', [
+      state('true', style({ opacity: 1 })),
+      state('false', style({ opacity: 0 })),
+      transition('1 => 0', animate('500ms')),
+      transition('0 => 1', animate('500ms'))
+    ])
+  ]
 })
 export class QuizComponent implements OnInit {
+  visibility: Boolean = true;
+
   quizTime = false;
   resultTime = false;
+  counter = 1;
   quiz = [
     {
       question: 'Question question question',
@@ -65,20 +84,22 @@ export class QuizComponent implements OnInit {
     {
       claim: 'blablabla',
       veredict: 'blablablalbalblablalblablabllablabalblabla'
-    }, {
+    },
+    {
       claim: 'blablabla2',
       veredict: 'blablab2lalbalblablalb2lablabllablabalblabl2a'
     },
     {
       claim: 'blablabla3',
-      veredict: 'blablablalb3alblablalbl3ablabllablabalblabl3a'
+      veredict:
+        'blablablalb3al blablalbl3ablablla blabalblabl3aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa'
     }
   ];
   checkbox;
 
   quizResult = {
     claim: '',
-    veredict: '',
+    veredict: ''
   };
   index = 0;
   currentQuestion = this.quiz[this.index];
@@ -89,24 +110,35 @@ export class QuizComponent implements OnInit {
   ngOnInit() {}
 
   showQuiz() {
-    this.totalResult = 0;
-    this.quizTime = true;
+    this.visibility = false;
+    setTimeout(() => {
+      this.visibility = true;
+      this.totalResult = 0;
+      this.quizTime = true;
+      this.counter = 1;
+    }, 500);
   }
 
-  nextQuestion(result) {
-    this.index += 1;
-    this.totalResult += result;
-    if (this.index < this.quiz.length) {
-      this.currentQuestion = this.quiz[this.index];
-    } else {
-      if (this.totalResult < this.quiz.length) {
-        this.quizResult = this.results[0];
-      } else if (this.totalResult > this.quiz.length * 2 ) {
-        this.quizResult = this.results[2];
+  nextQuestion(result, form) {
+    this.visibility = false;
+    setTimeout(() => {
+      form.reset();
+      this.counter++;
+      this.index += 1;
+      this.totalResult += result;
+      if (this.index < this.quiz.length) {
+        this.currentQuestion = this.quiz[this.index];
       } else {
-        this.quizResult = this.results[1];
+        if (this.totalResult < this.quiz.length) {
+          this.quizResult = this.results[0];
+        } else if (this.totalResult > this.quiz.length * 2) {
+          this.quizResult = this.results[2];
+        } else {
+          this.quizResult = this.results[1];
+        }
+        this.resultTime = true;
       }
-      this.resultTime = true;
-    }
+      this.visibility = true;
+    }, 500);
   }
 }

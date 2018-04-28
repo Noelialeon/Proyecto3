@@ -21,6 +21,14 @@ export class NewsComponent implements OnInit {
   }
 
   getNews() {
-    this.newsService.getNews().then(res => (this.allNews = res.articles));
+    this.newsService.getNews().then(res => {
+      this.allNews = res.articles;
+      this.allNews.forEach(news => {
+        if (news.urlToImage === undefined) {
+          news.urlToImage =
+            'this.src=\'../../../assets/images/news-image-default.jpg';
+        }
+      });
+    });
   }
 }
