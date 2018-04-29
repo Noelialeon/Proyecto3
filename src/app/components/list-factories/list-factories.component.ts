@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListFactoriesComponent implements OnInit {
   user;
   factory: any = {};
-  factories;
+  factories: any = [];
 
   constructor(
     private session: AuthService,
@@ -28,7 +28,17 @@ export class ListFactoriesComponent implements OnInit {
   showList() {
     this.factoryApi.getList().then(res => {
       this.factories = res;
+      this.factories.forEach((factory) => factory.editing = false);
     });
+  }
+
+  showForm(factory) {
+    this.factories.forEach((fact) => fact.editing = false);
+    factory.editing = true;
+  }
+
+  updateFactory(factory) {
+    this.factoryApi.update(factory);
   }
 
   delete(factory) {

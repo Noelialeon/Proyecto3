@@ -6,25 +6,36 @@ body {
   background-color: white;
   color: black;
   font-family: "Montserrat", sans-serif;
-  background-size: auto 100%;
+  font-weight: 700;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
 }
 
 nav {
-  box-shadow: none;
+  /* box-shadow: none; */
+  height: 10vh;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
+  font-weight: 700;
 
+  /* background-color: white; */
 }
 
 .container-fluid {
   position: relative;
-  height: -webkit-fill-available;
+  height: 90vh;
   padding: 0px;
 }
 
 .type-bold {
   font-weight: 800;
+}
+
+p {
+  font-weight: 400;
 }
 
 /*quiz page*/
@@ -48,6 +59,7 @@ nav {
   width: 600px;
   white-space: normal;
 }
+
 /* Checkbox */
 .container-check {
   display: block;
@@ -114,16 +126,18 @@ nav {
 
 
 /*map page */
+
 .map-frame {
   position: absolute;
-  height: 100%;
+  height: 90vh;
+
   width:  100%;
   font-size: 60px;
 }
 
 agm-map {
   width: 100%;
-  height: 600px;
+  height: 90vh;
   position: relative;
 }
 
@@ -138,13 +152,71 @@ agm-map {
   color: #fff;
 }
 
+/* News Cards */
+
+.card {
+  display: block;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border-radius: 2px;
+  font-weight: 700;
+  box-shadow: none;
+}
+.card h4{
+  font-weight: 700;
+}
+
+.card-img-top {
+  height:200px;
+  width: 100%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  display: block;
+  overflow: hidden;
+}
+
+.img-card img {
+  /* width: 100%; */
+  /* object-fit: cover; */
+  transition: all 0.25s ease;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.4em;
+}
+
+a {
+  color: #000;
+  text-decoration: none !important;
+}
+
+.card-read-more {
+  border-top: 1px solid #d4d4d4;
+}
+.card-read-more a {
+  text-decoration: none !important;
+  padding: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card{
+  font-weight: 700;
+}
 
 /*btn peach*/
 
 .btn {
   padding: 0.84rem 2.14rem;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
 
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -176,4 +248,20 @@ agm-map {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
+}
+
+/* Login and signup*/
+
+.auth{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    text-align: center;
+}
+
+.error{
+  font-weight: 400;
+  color: orange;
 }

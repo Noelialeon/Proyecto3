@@ -1,29 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 mx-auto">
-      <div class="card-register mx-auto">
-        <div class="card-body">
-          <h3 class="card-title">Log in</h3>
-          <form>
+<div class="container-fluid">
+  <div class="row align-items-center auth">
+    <div class="card-register">
+      <div class="card-body">
+        <h3 class="card-title">Log in</h3>
+        <form>
 
-            <div class="md-form">
-              <i class="fa fa-envelope prefix grey-text"></i>
-              <input type="email" [(ngModel)]="formInfo.username" name="username" placeholder="Username" id="materialFormLoginNameEx" class="form-control">
-            </div>
+          <div class="md-form">
+            <input type="email" [(ngModel)]="formInfo.username" name="username" placeholder="Username" id="materialFormLoginNameEx" class="form-control">
+          </div>
 
-            <!-- Material input password -->
-            <div class="md-form">
-              <i class="fa fa-lock prefix grey-text"></i>
-              <input type="password" [(ngModel)]="formInfo.password" name="password" placeholder="Your password"id="materialFormLoginPasswordEx" class="form-control">
-            </div>
+          <!-- Material input password -->
+          <div class="md-form">
+            <input type="password" [(ngModel)]="formInfo.password" name="password" placeholder="Your password" id="materialFormLoginPasswordEx"
+              class="form-control">
+          </div>
 
-            <div class="text-center mt-3">
-              <button class="btn peach-gradient btn-rounded" (click)="login()">Log in</button>
-            </div>
-          </form>
+          <div class="text-center mt-3">
+
+            <button class="btn peach-gradient btn-rounded" (click)="login()">Log in</button>
+          </div>
+        </form>
+        <div class="text-center mt-3">
+          <small>
+            Don't you have an account yet?
+            <br>
+            <a [routerLink]="['/signup']">Sign up</a>
+          </small>
+          <div class="text-center mt-3 error">
+            <small> {{ error }} </small>
+          </div>
         </div>
       </div>
-      <p class="error"> {{ error }} </p>
     </div>
   </div>
 </div>

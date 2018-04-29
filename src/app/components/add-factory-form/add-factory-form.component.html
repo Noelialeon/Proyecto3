@@ -3,19 +3,18 @@
     <div class="col-sm-6 mx-auto">
       <div class="card-register mx-auto">
         <div class="card-body">
-          <h3 class="card-title">Add a factory</h3>
+          <h3 class="card-title">Add a factory form</h3>
 
-          <form (ngSubmit)="addItem()" #myForm="ngForm">
+          <form (ngSubmit)="addItem()" #addFactoryForm="ngForm">
 
             <div class="md-form">
               <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
               <input type="text" [(ngModel)]="factory.companyName" name="companyName" placeholder="Company name" id="materialFormLoginNameEx"
-                class="form-control">
+                class="form-control" #input required>
             </div>
-
-            <div class="md-form">
-              <select name="country" [(ngModel)]="factory.country" required>
-                <option value="" selected="selected">{{factory.country}}</option>
+            <div class="md-form" name="country" [(ngModel)]="factory.country" ngDefaultControl>
+              <select #input required>
+                <option disabled selected value="none">Select the EU country</option>
                 <option value="Austria">Austria</option>
                 <option value="Belgium">Belgium</option>
                 <option value="Denmark">Denmark</option>
@@ -47,21 +46,27 @@
               </select>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="address" placeholder="address" [(ngModel)]="factory.address">
+              <input type="text" class="form-control" name="address" placeholder="address" [(ngModel)]="factory.address" #input required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="zipcode" placeholder="zipcode" [(ngModel)]="factory.zipcode">
+              <input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="factory.city" #input required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="activity" placeholder="activity" [(ngModel)]="factory.activity">
+              <input type="text" class="form-control" name="zipcode" placeholder="zipcode" [(ngModel)]="factory.zipcode" #input required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="billing" placeholder="billing" [(ngModel)]="factory.billing">
+              <input type="text" class="form-control" name="activity" placeholder="activity" [(ngModel)]="factory.activity" #input required>
+            </div>
+            <div class="md-form">
+              <input type="text" class="form-control" name="billing" placeholder="billing" [(ngModel)]="factory.billing" #input required>
             </div>
             <input hidden id="latitude" type="" name="latitude" [(ngModel)]="factory.lat">
             <input hidden id="longitude" type="" name="longitude" [(ngModel)]="factory.long">
+            <div class="text-center mt-3 error" *ngIf="!addFactoryForm.valid">
+                <small>  Please, fill in all of the fields. </small>
+              </div>
             <div class="text-center mt-3">
-              <button class="btn peach-gradient btn-rounded" type="submit">Add factory</button>
+              <button class="btn peach-gradient btn-rounded" [disabled]="!addFactoryForm.valid" type="submit">Add factory</button>
             </div>
           </form>
         </div>
@@ -69,3 +74,6 @@
     </div>
   </div>
 </div>
+
+
+

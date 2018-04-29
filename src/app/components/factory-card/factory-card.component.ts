@@ -9,6 +9,9 @@ import { FactoryApiService } from '../../services/factory-api.service';
 export class FactoryCardComponent implements OnInit {
   editing = false;
   @Output() delete = new EventEmitter<string>();
+  @Output() update = new EventEmitter<string>();
+  @Output() showForm = new EventEmitter<string>();
+
   @Input() factory;
 
   constructor(private factoryApi: FactoryApiService) {}
@@ -21,13 +24,14 @@ export class FactoryCardComponent implements OnInit {
     }
   }
 
-  showForm() {
-    this.editing = true;
+  showCurrentForm(factory) {
+    this.showForm.emit(factory);
   }
 
-  updateFactory(factory) {
-    this.factoryApi.update(factory);
-    this.editing = false;
-    console.log(factory);
+  updateItem(factory) {
+    factory.editing = false;
+    console.log("at son");
+    this.update.emit(factory);
+
   }
 }

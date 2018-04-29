@@ -13,7 +13,7 @@ import { HomePageComponent } from './pages/home-page-component/home-page-compone
 import { AuthLoginPageComponent } from './pages/auth-login-page-component/auth-login-page-component.component';
 import { AuthSignupPageComponent } from './pages/auth-signup-page-component/auth-signup-page-component.component';
 import { CompanyPageComponent } from './pages/company-page/company-page.component';
-import { AddFactoryPageComponent } from './pages/add-factory-page/add-factory-page/add-factory-page.component';
+import { AddFactoryPageComponent } from './pages/add-factory-page/add-factory-page.component';
 import { PrivateComponent } from './pages/private/private.component';
 import { HomeMapComponent } from './pages/home-map/home-map.component';
 
@@ -38,9 +38,6 @@ import { WordLengthPipe } from './pipes/word-length.pipe';
 import { MapsComponent } from './components/maps/maps.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 
-// extras
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -108,7 +105,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDgXhtB3roWHVQ3xN-R9ppbWCprBKa0fEs',

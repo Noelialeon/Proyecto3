@@ -28,7 +28,7 @@ export class AuthLoginPageComponent implements OnInit {
         this.router.navigate(['/private-profile']);
       })
       .catch((error) => {
-        this.error = "Please, enter a valid username and password";
+        this.error = 'Please, enter a valid username and password';
       });
   }
 

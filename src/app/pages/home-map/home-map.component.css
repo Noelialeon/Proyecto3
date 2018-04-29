@@ -1,0 +1,39 @@
+.MainContainer {
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 90vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.ContentContainer {
+  position: relative;
+  display: block;
+  background-color: white;
+  z-index: 1;
+}
+
+.Content {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 75px 0;
+}
+
+p {
+  margin: 25px 0;
+}
+
+.ParallaxContainer {
+  display: flex;
+  flex: 1 0 auto;
+  position: relative;
+  z-index: -1;
+  left:-10px;
+  height: 50vh;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  transform: translateZ(-1px) scale(2);
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/sakura.png);
+  background-color: rgb(250,228, 216);
+}

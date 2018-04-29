@@ -2,29 +2,29 @@
   <h1> Related news </h1>
   <hr>
   <div class="row">
-    <div class="col-xs-3 col-sm-4 col-md-4" *ngFor="let new of allNews">
-      <div class="card elegant-color">
+    <div class="col-xs-12 col-sm-4 col-md-4" *ngFor="let new of allNews">
+      <div class="card">
         <div class="view overlay" rel="noopener noreferrer" target="_blank">
           <a href="{{new.url}}">
             <img class="card-img-top" src="{{ new.urlToImage }}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
-        <div class="card-body elegant-color white-text rounded-bottom">
+        <div class="card-body rounded-bottom">
           <h4 class="card-title">
             {{new.title}}
           </h4>
-          <small class="text-muted-white">
-            <a href='{{new.url}}' class="text-white">
+          <small class="text-muted">
+            <a href='{{new.url}}' class="text-dark" rel="noopener noreferrer" target="_blank">
               {{new.source.name}}
             </a>
           </small>
-          <hr class="hr-light">
-          <div class="card-text white-text mb-4">
+          <div class="card-text mb-4 pt-2">
             {{new.description | wordLength : 175}}
           </div>
           <small class="text-muted">{{new.publishedAt | date:'medium'}}</small>
-          <a href="{{new.url}}" class="white-text d-flex justify-content-end">
+          <hr class="hr-dark" style="border: 2px solid black;">
+          <a href="{{new.url}}" class="black-text d-flex justify-content-center" rel="noopener noreferrer" target="_blank">
             <h5>Read more
               <i class="fa fa-angle-double-right"></i>
             </h5>

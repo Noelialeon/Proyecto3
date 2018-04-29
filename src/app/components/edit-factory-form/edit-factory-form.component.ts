@@ -28,7 +28,6 @@ export class EditFactoryFormComponent implements OnInit {
 
   edit(factory) {
     const address = `${factory.address} ${factory.zipcode} ${factory.country}`;
-
     this.mapsAPILoader
     .load()
     .then(() => {
@@ -37,12 +36,14 @@ export class EditFactoryFormComponent implements OnInit {
         { address: address },
         (results, status) => {
           if (status === google.maps.GeocoderStatus.OK) {
-            this.factory.lat = results[0].geometry.location.lat();
-            this.factory.long = results[0].geometry.location.lng();
-            this.update.emit(this.factory);
+            factory.lat = results[0].geometry.location.lat();
+            factory.long = results[0].geometry.location.lng();
           }
         }
       );
+      factory.editing = false;
+      this.update.emit(factory);
+      console.log("at grandson");
     })
     .catch((err) => console.log(err));
   }

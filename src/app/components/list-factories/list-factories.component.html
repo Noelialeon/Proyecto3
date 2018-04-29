@@ -1,8 +1,15 @@
-<div class="container mt-5">
-<hr>
-<h5> Your research contains the following factories: </h5>
-<div class="row">
-  <div class="col-xs-12 col-sm-4" *ngFor="let factory of factories">
-    <app-factory-card  [factory]="factory" (delete)="delete($event)"></app-factory-card>
+<div class="container-fluid p-5">
+  <hr>
+  <div *ngIf="factories.length === 0">
+    No factory added yet
+  </div>
+  <div *ngIf="factories.length > 0">
+    <h3 class="title text-center m-5">Your research contains the following factories:
+    </h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4" *ngFor="let factory of factories">
+        <app-factory-card [factory]="factory" (delete)="delete($event)" (update)="updateFactory($event)" (showForm)="showForm($event)"></app-factory-card>
+      </div>
+    </div>
   </div>
 </div>

@@ -10,7 +10,7 @@ export class FactoryApiService {
 
   add(factory) {
     return this.http
-      .post(`${this.BASE_URL}/arms-factory`, factory)
+      .post(`${this.BASE_URL}/add-factory`, factory)
       .toPromise()
       .then((res: Response) => res.json())
       .catch(error => {

@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['../../app.component.css'],
+  styleUrls: ['../../../assets/css/style.css'],
   providers: [NewsService]
 })
 export class NewsComponent implements OnInit {

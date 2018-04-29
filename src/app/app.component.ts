@@ -1,14 +1,14 @@
-import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from "./services/auth.service";
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../assets/css/style.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   loading = true;
   anon: boolean;
