@@ -1,15 +1,15 @@
-import { Component, Output, EventEmitter } from "@angular/core";
-import { FactoryApiService } from "../../services/factory-api.service";
-import { AgmCoreModule, MapsAPILoader } from "@agm/core";
-import { google } from "google-maps";
-import { Observable } from "rxjs/Observable";
-import { Observer } from "rxjs/Observer";
-import { Router } from "@angular/router";
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FactoryApiService } from '../../services/factory-api.service';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
+import { google } from 'google-maps';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-add-factory-form",
-  templateUrl: "./add-factory-form.component.html",
-  styleUrls: ["./add-factory-form.component.css"]
+  selector: 'app-add-factory-form',
+  templateUrl: './add-factory-form.component.html',
+  styleUrls: ['./add-factory-form.component.css']
 })
 export class AddFactoryFormComponent {
   factory: any = {};
@@ -51,6 +51,6 @@ export class AddFactoryFormComponent {
   showList() {
     this.factoryApi
       .getList()
-      .then(res => console.log("All the factories are", res));
+      .then(res => console.log('All the factories are', res));
   }
 }

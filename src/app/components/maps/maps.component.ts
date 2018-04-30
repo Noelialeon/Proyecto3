@@ -9,8 +9,9 @@ import { FactoryApiService } from '../../services/factory-api.service';
 interface Marker {
   lat: number;
   lng: number;
-  label?: string;
   draggable: boolean;
+  isOpen: boolean;
+  factoryInfo: object;
 }
 
 @Component({
@@ -190,6 +191,8 @@ export class MapsComponent implements OnInit {
   public factories;
 
   markers: Marker[] = [];
+  infoWindow;
+  infoWindowOpened = null;
 
   @ViewChild('search') public searchElementRef: ElementRef;
 
@@ -232,10 +235,12 @@ export class MapsComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 10;
+
           this.chargePins();
         });
       });
     });
+    this.chargePins();
   }
 
   private setCurrentPosition() {
@@ -255,12 +260,26 @@ export class MapsComponent implements OnInit {
         const currentMarker: Marker = {
           lat: factory.lat,
           lng: factory.long,
-          label: factory.companyName,
-          draggable: true
+          draggable: true,
+          isOpen: false,
+          factoryInfo: factory,
         };
         this.markers.push(currentMarker);
       });
       console.log('factories are', this.markers, this.factories);
     });
+  }
+
+  clickedMarker(infoWindow, index: number) {
+
+    if ( this.infoWindowOpened ===  infoWindow) {
+      return;
+    }
+
+    if ( this.infoWindowOpened !== null ) {
+       this.infoWindowOpened.close();
+      }
+
+    this.infoWindowOpened = infoWindow;
   }
 }

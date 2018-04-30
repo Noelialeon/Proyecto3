@@ -13,7 +13,6 @@ user;
 
   constructor(
     private session: AuthService,
-    private router: Router
   ) { }
 
   ngOnInit() {

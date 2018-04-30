@@ -152,6 +152,15 @@ agm-map {
   color: #fff;
 }
 
+.infowindow{
+  width: auto;
+  max-width: 400px;
+  height: auto;
+  max-width: 200px;
+  padding: 5px;
+  padding-top: 15px;
+
+}
 /* News Cards */
 
 .card {
