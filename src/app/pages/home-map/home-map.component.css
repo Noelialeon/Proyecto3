@@ -7,7 +7,9 @@
 }
 
 .ContentContainer {
-  position: relative;
+    position: relative;
+  max-height: 90vh;
+  padding: 0px;
   display: block;
   background-color: white;
   z-index: 1;
@@ -30,10 +32,22 @@ p {
   z-index: -1;
   left:-10px;
   height: 50vh;
-  max-width: 100%;
   justify-content: center;
   align-items: center;
   transform: translateZ(-1px) scale(2);
-  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/sakura.png);
   background-color: rgb(250,228, 216);
+  background-image: url("../../../assets/images/parallax-bg.jpg");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
+}
+
+.credit {
+  font-size: 12px;
+  color:black;
 }

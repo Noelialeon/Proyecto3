@@ -1,11 +1,18 @@
-<p>Related activity of {{exportCountry}}:</p>
+<p>Goods exports from
+  <b>{{exportCountry}}</b> to:*</p>
 
 <div *ngIf="loading">
   <span class="username text">loading...</span>
 </div>
 <div *ngIf="!loading">
-  <div *ngFor="let buyerCountry of allCountries">
-    <p>sells to {{buyerCountry.destinationCountry}} valued in €{{ buyerCountry.value | number | shortNumber}}
-    </p>
-  </div>
+  <ul *ngFor="let buyerCountry of allCountries">
+    <li><p><b>{{buyerCountry.destinationCountry}}</b> valued in <b>€{{ buyerCountry.value | number | shortNumber}}</b>
+    </li>
+  </ul>
+  <p style="line-height: 12px; font-size: 14px; text-justify: auto;">
+    <small>*Source data from the
+      <a href="https://eeas.europa.eu/headquarters/headquarters-homepage/8472/annual-reports-arms-exports_en">
+        Official Journal of the European Union annual reports on the European Union Code of Conduct on Arms Exports</a> refering
+      to specific goods exports of {{exportCountry}} since 1998 to 2016.</small>
+  </p>
 </div>

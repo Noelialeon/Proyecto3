@@ -17,7 +17,9 @@ export class PrivateComponent implements OnInit {
     private session: AuthService,
     private factoryApi: FactoryApiService,
     private router: Router
-  ) {}
+  ) {
+    console.log('PrivateComponent Constructor');
+  }
 
   ngOnInit() {
     this.user = this.session.getUser();

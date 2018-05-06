@@ -29,70 +29,74 @@ export class QuizComponent implements OnInit {
   counter = 1;
   quiz = [
     {
-      question: 'Question question question',
+      question: 'Is your money in one of these banks?',
+      source: 'http://www.bancaarmada.org/es/',
       answers: [
         {
-          answer: 'answer1',
+          answer: 'BBVA, Banco Santander or Bankia',
+          value: 0
+        },
+        {
+          answer: 'Caixa Bank, Banco Popular or Banco Sabadell',
           value: 1
         },
         {
-          answer: 'answer22',
+          answer: 'Triodos, Coop57',
           value: 2
-        },
-        {
-          answer: 'answer33',
-          value: 3
         }
       ]
     },
     {
-      question: 'Question2 question2 question',
+      question: `Select the first european country amongst the World's Biggest Weapons Exporter`,
+      source: 'http://bigthink.com/strange-maps/mapping-the-worlds-biggest-weapons-exporters-nil-and-their-best-customers',
       answers: [
         {
-          answer: 'answer4',
-          value: 1
+          answer: 'Bulgaria',
+          value: 0
         },
         {
-          answer: 'answer5',
+          answer: 'France',
           value: 2
         },
         {
-          answer: 'answer6',
-          value: 3
+          answer: 'Austria',
+          value: 1
         }
       ]
     },
     {
-      question: 'Question3 3 3 ',
+      question: 'Which percentage of ISIS weapons are made in Europe?',
+      source: 'https://www.telegraph.co.uk/news/2017/12/14/nearly-third-weapons-used-isil-battlefield-manufactured-eu-report/',
       answers: [
         {
-          answer: 'answer4',
+          answer: '5%',
+          value: 0
+        },
+        {
+          answer: '18%',
           value: 1
         },
         {
-          answer: 'answer5',
+          answer: '30%',
           value: 2
-        },
-        {
-          answer: 'answer6',
-          value: 3
         }
       ]
     }
   ];
   results = [
     {
-      claim: 'blablabla',
-      veredict: 'blablablalbalblablalblablabllablabalblabla'
+      claim: 'You are not aware.',
+      veredict: `We'are sorry to tell you the truth: most probably, your bank is using your money to make weapons
+      that will kill civilians in other countries and your beautiful Europe is not what is seems. Go on and check it yourself:`
     },
     {
-      claim: 'blablabla2',
-      veredict: 'blablab2lalbalblablalb2lablabllablabalblabl2a'
+      claim: 'You are almost aware.',
+      veredict: 'You already knew that Europe is not perfect, are you going to do something about it? Go to the starting point:'
     },
     {
-      claim: 'blablabla3',
+      claim: 'You are totally aware.',
       veredict:
-        'blablablalb3al blablalbl3ablablla blabalblabl3aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaa'
+        `Congratulationss, go on and check all the information we've prepared:`
     }
   ];
   checkbox;
@@ -129,9 +133,9 @@ export class QuizComponent implements OnInit {
       if (this.index < this.quiz.length) {
         this.currentQuestion = this.quiz[this.index];
       } else {
-        if (this.totalResult < this.quiz.length) {
+        if (this.totalResult <= this.quiz.length) {
           this.quizResult = this.results[0];
-        } else if (this.totalResult > this.quiz.length * 2) {
+        } else if (this.totalResult === this.quiz.length * 2) {
           this.quizResult = this.results[2];
         } else {
           this.quizResult = this.results[1];

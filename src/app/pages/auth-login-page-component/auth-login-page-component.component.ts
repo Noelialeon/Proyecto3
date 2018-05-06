@@ -25,7 +25,7 @@ export class AuthLoginPageComponent implements OnInit {
       .login(this.formInfo)
       .then(user => {
         this.user = user;
-        this.router.navigate(['/private-profile']);
+        this.router.navigate(['/profile']);
       })
       .catch((error) => {
         this.error = 'Please, enter a valid username and password';

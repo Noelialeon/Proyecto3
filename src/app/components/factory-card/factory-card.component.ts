@@ -30,7 +30,6 @@ export class FactoryCardComponent implements OnInit {
 
   updateItem(factory) {
     factory.editing = false;
-    console.log("at son");
     this.update.emit(factory);
 
   }

@@ -56,13 +56,8 @@ const routes: Routes = [
     canActivate: [RequireAnonGuardService]
   },
   {
-    path: 'private-profile',
+    path: 'profile',
     component: PrivateComponent,
-    canActivate: [RequireUserGuardService]
-  },
-  {
-    path: 'company/:id',
-    component: CompanyPageComponent,
     canActivate: [RequireUserGuardService]
   },
   {
@@ -73,6 +68,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeMapComponent,
+    canActivate: [InitAuthGuardService]
+  },
+  {
+    path: 'company/:id',
+    component: CompanyPageComponent,
     canActivate: [InitAuthGuardService]
   },
   { path: '**', redirectTo: '' }

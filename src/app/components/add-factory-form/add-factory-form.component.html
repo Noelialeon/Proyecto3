@@ -4,76 +4,71 @@
       <div class="card-register mx-auto">
         <div class="card-body">
           <h3 class="card-title">Add a factory form</h3>
-
-          <form (ngSubmit)="addItem()" #addFactoryForm="ngForm">
+          <a class="back-to-profile" [routerLink]="['/profile']">< Back to profile</a>
+          <form (submit)="addItem()" #addFactoryForm="ngForm">
 
             <div class="md-form">
               <!-- <i class="fa fa-envelope prefix grey-text"></i> -->
               <input type="text" [(ngModel)]="factory.companyName" name="companyName" placeholder="Company name" id="materialFormLoginNameEx"
-                class="form-control" #input required>
+                class="form-control" required>
             </div>
             <div class="md-form" name="country" [(ngModel)]="factory.country" ngDefaultControl>
-              <select #input required>
+              <select required>
                 <option disabled selected value="none">Select the EU country</option>
                 <option value="Austria">Austria</option>
                 <option value="Belgium">Belgium</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech%20Republic">Czech Republic</option>
                 <option value="Denmark">Denmark</option>
+                <option value="Estonia">Estonia</option>
                 <option value="Finland">Finland</option>
                 <option value="France">France</option>
                 <option value="Germany">Germany</option>
                 <option value="Greece">Greece</option>
+                <option value="Hungary">Hungary</option>
                 <option value="Ireland">Ireland</option>
                 <option value="Italy">Italy</option>
-                <option value="Luxembourg">Luxembourg</option>
-                <option value="Luxembourg">Belgium</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Spain">Spain</option>
-                <option value="United%20Kingdom">United Kingdom</option>
-                <option value="Czech%20Republic">Czech Republic</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Malta">Malta</option>
-                <option value="Poland">Poland</option>
-                <option value="Slovakia">Slovakia</option>
-                <option value="Slovenia">Slovenia</option>
-                <option value="Cyprus">Cyprus</option>
-                <option value="Estonia">Estonia</option>
                 <option value="Latvia">Latvia</option>
                 <option value="Lithuania">Lithuania</option>
-                <option value="Bulgaria">Bulgaria</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Malta">Malta</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
                 <option value="Romania">Romania</option>
-                <option value="Croatia">Croatia</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Spain">Spain</option>
+                <option value="United%20Kingdom">United Kingdom</option>
               </select>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="address" placeholder="address" [(ngModel)]="factory.address" #input required>
+              <input type="text" class="form-control" name="address" placeholder="address" [(ngModel)]="factory.address" required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="factory.city" #input required>
+              <input type="text" class="form-control" name="city" placeholder="city" [(ngModel)]="factory.city" required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="zipcode" placeholder="zipcode" [(ngModel)]="factory.zipcode" #input required>
+              <input type="text" class="form-control" name="zipcode" placeholder="zipcode" [(ngModel)]="factory.zipcode" required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="activity" placeholder="activity" [(ngModel)]="factory.activity" #input required>
+              <input type="text" class="form-control" name="activity" placeholder="activity" [(ngModel)]="factory.activity" required>
             </div>
             <div class="md-form">
-              <input type="text" class="form-control" name="billing" placeholder="billing" [(ngModel)]="factory.billing" #input required>
+              <input type="text" class="form-control" name="billing" placeholder="billing" [(ngModel)]="factory.billing" required>
             </div>
             <input hidden id="latitude" type="" name="latitude" [(ngModel)]="factory.lat">
             <input hidden id="longitude" type="" name="longitude" [(ngModel)]="factory.long">
             <div class="text-center mt-3 error" *ngIf="!addFactoryForm.valid">
-                <small>  Please, fill in all of the fields. </small>
-              </div>
+              <small> Please, fill in all of the fields. </small>
+            </div>
             <div class="text-center mt-3">
-              <button class="btn peach-gradient btn-rounded" [disabled]="!addFactoryForm.valid" type="submit">Add factory</button>
+              <button class="btn peach-gradient btn-rounded" [disabled]="!addFactoryForm.valid">Add factory</button>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="card m-3 mt-5">
+  <div class="card mt-5">
     <div class="view overlay" rel="noopener noreferrer" target="_blank">
       <a [routerLink]="['/company', factory._id]">
         <img class="card-img-top" src="{{factory.logo}}" onerror="this.src='../../../assets/images/news-image-default.jpg'">
@@ -21,6 +21,8 @@
         <p>Billing: {{ factory.billing }} M€</p>
         <p>Country: {{ factory.country }}</p>
         <p>Address: {{ factory.address }}</p>
+        <p>City: {{ factory.city }}</p>
+
       </div>
 
       <div class="text-center mt-3 justify-content-center">

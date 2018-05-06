@@ -10,7 +10,6 @@ interface Marker {
   lat: number;
   lng: number;
   draggable: boolean;
-  isOpen: boolean;
   factoryInfo: object;
 }
 
@@ -240,7 +239,6 @@ export class MapsComponent implements OnInit {
         });
       });
     });
-    this.chargePins();
   }
 
   private setCurrentPosition() {
@@ -261,7 +259,6 @@ export class MapsComponent implements OnInit {
           lat: factory.lat,
           lng: factory.long,
           draggable: true,
-          isOpen: false,
           factoryInfo: factory,
         };
         this.markers.push(currentMarker);
@@ -271,15 +268,12 @@ export class MapsComponent implements OnInit {
   }
 
   clickedMarker(infoWindow, index: number) {
-
     if ( this.infoWindowOpened ===  infoWindow) {
       return;
     }
-
     if ( this.infoWindowOpened !== null ) {
-       this.infoWindowOpened.close();
-      }
-
+      this.infoWindowOpened.close();
+    }
     this.infoWindowOpened = infoWindow;
   }
 }
