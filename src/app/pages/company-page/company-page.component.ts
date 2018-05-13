@@ -9,8 +9,6 @@ import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 interface Marker {
   lat: number;
   lng: number;
-  draggable: boolean;
-  factoryInfo: object;
 }
 
 @Component({
@@ -27,7 +25,9 @@ export class CompanyPageComponent implements OnInit {
     zipcode: '',
     country: '',
     activity: '',
-    billing: ''
+    billing: '',
+    lat: '',
+    long: ''
   };
   styles: any[] = [
     {
@@ -188,24 +188,21 @@ export class CompanyPageComponent implements OnInit {
         }
       ]
     }
-  // {elementType: 'geometry', stylers: [{color: '#000000'}]},
-  // {elementType: 'labels.text.stroke', stylers: [{color: '#ffffff'}]},
-  // {elementType: 'labels.text.fill', stylers: [{color: '#cccccc'}]},
 ];
 public latitude: number;
 public longitude: number;
 public zoom: number;
 public google: google;
 public marker: Marker;
+public factoryCountry = decodeURI(this.factory.country);
 
-
-  constructor(
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,
-    private route: ActivatedRoute,
-    private router: Router,
-    private factoryApi: FactoryApiService
-  ) {}
+constructor(
+  private mapsAPILoader: MapsAPILoader,
+  private ngZone: NgZone,
+  private route: ActivatedRoute,
+  private router: Router,
+  private factoryApi: FactoryApiService
+) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -215,9 +212,9 @@ public marker: Marker;
 
   getDetails(id) {
     this.factoryApi
-      .get(id)
-      .then(factory => {
-        this.factory = factory;
+    .get(id)
+    .then(factory => {
+      this.factory = factory;
         this.latitude = factory.lat;
         this.longitude = factory.long;
         this.zoom = 10;
@@ -232,8 +229,6 @@ public marker: Marker;
     this.marker = {
       lat: factory.lat,
       lng: factory.long,
-      draggable: true,
-      factoryInfo: factory,
     };
   }
 

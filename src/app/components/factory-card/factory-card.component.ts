@@ -16,10 +16,12 @@ export class FactoryCardComponent implements OnInit {
 
   constructor(private factoryApi: FactoryApiService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.factory.factoryCountry = decodeURI(this.factory.country);
+  }
 
   deleteItem(factory) {
-    if (confirm('Are you sure?')) {
+    if (confirm('Do you really want to delete this factory?')) {
       this.delete.emit(factory);
     }
   }

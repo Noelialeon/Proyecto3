@@ -13,13 +13,13 @@
     </div>
     <div *ngIf="!factory.editing">
       <h4 class="card-title mb-0">
-        Factory: {{factory.companyName}}
+        {{factory.companyName}}
       </h4>
       <small class="text-muted">Updated at: {{ factory.updated_at | date:'medium'}}</small>
       <div class="card-text mt-4 mb-4">
         <p>Activity: {{ factory.activity }}</p>
-        <p>Billing: {{ factory.billing }} M€</p>
-        <p>Country: {{ factory.country }}</p>
+        <p>Billing: {{ factory.billing }} €</p>
+        <p>Country: {{ factory.factoryCountry }}</p>
         <p>Address: {{ factory.address }}</p>
         <p>City: {{ factory.city }}</p>
 

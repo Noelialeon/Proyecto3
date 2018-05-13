@@ -43,7 +43,6 @@ export class EditFactoryFormComponent implements OnInit {
       );
       factory.editing = false;
       this.update.emit(factory);
-      console.log("at grandson");
     })
     .catch((err) => console.log(err));
   }

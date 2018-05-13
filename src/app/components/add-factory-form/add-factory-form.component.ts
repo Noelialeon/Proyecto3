@@ -34,16 +34,11 @@ export class AddFactoryFormComponent {
           result.geocode(options, (results, status) => {
             if (confirm(`Is your addres ${results[0].formatted_address}`)) {
               if (status === google.maps.GeocoderStatus.OK) {
-                console.log('results', results);
                 this.factory.lat = results[0].geometry.location.lat();
                 this.factory.long = results[0].geometry.location.lng();
-                this.factory.country = this.getCountry(results[0].address_components);
                 this.factory.address = this.getAddress(results[0].address_components);
                 this.factory.zipcode = this.getPostalCode(results[0].address_components);
                 this.factory.city = this.getCity(results[0].address_components);
-
-
-                console.log('factory', this.factory);
                 resolve();
               }
             }
@@ -60,20 +55,6 @@ export class AddFactoryFormComponent {
 
   getGoogleMaps() {
     return this.mapsAPILoader.load();
-  }
-
-  getCountry(addrComponents) {
-    for (let i = 0; i < addrComponents.length; i++) {
-        if (addrComponents[i].types[0] === 'country') {
-            return addrComponents[i].long_name;
-        }
-        if (addrComponents[i].types.length === 2) {
-            if (addrComponents[i].types[0] === 'political') {
-                return addrComponents[i].long_name;
-            }
-        }
-    }
-    return false;
   }
 
   getAddress(addrComponents) {
@@ -110,7 +91,6 @@ export class AddFactoryFormComponent {
 
   showList() {
     this.factoryApi
-      .getList()
-      .then(res => console.log('All the factories are', res));
+      .getList();
   }
 }

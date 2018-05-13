@@ -14,12 +14,12 @@ export class CountryExportsComponent implements OnInit, OnChanges {
   allCountries: any = [];
   loading: Boolean = true;
   country: string;
+  exportCountry_: string;
 
   constructor(private buyerCountriesApi: BuyerCountriesApiService) {
   }
 
   ngOnInit() {
-    // this.showBuyerCountries();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -31,6 +31,7 @@ export class CountryExportsComponent implements OnInit, OnChanges {
     this.buyerCountriesApi
       .getList(this.exportCountry)
       .then( (countries) => {
+        this.exportCountry_ = decodeURI(this.exportCountry);
         this.allCountries = countries;
         this.loading = false;
       });

@@ -2,8 +2,7 @@
   <div class="row align-items-center">
     <div class="col-md-2  align-items-center">
       <div class="center-map">
-        <agm-map #map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="styles" [clickableIcons]="false"
-          [mapTypeControl]="false" [streetViewControl]="false">
+        <agm-map #map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" [styles]="styles" [clickableIcons]="false" [mapTypeControl]="false" [streetViewControl]="false">
           <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [markerClickable]="false">
           </agm-marker>
         </agm-map>
@@ -18,7 +17,7 @@
 
       <p>Address: {{factory.address}}, {{factory.zipcode}},</p>
       <p>
-        <strong>{{factory.country}}</strong>
+        <strong>{{factoryCountry}}</strong>
       </p>
     </div>
     <div class="col-md-6 align-items-center">
@@ -28,4 +27,3 @@
     </div>
   </div>
 </div>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASqvdUmBMrb4nRgdJfkT7WlhOGA1VKTOw"></script> -->

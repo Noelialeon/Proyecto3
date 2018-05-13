@@ -10,7 +10,7 @@ export class ShortNumberPipe implements PipeTransform {
       return 0;
     } else {
       // hundreds
-     if (value.length > 6) {
+      if (value.length > 6) {
         // millions
         return value.substr(0, value.length - 8 ) + 'M';
       } else if (value.length <= 6) {

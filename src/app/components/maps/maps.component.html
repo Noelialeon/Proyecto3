@@ -4,7 +4,7 @@
       [mapTypeControl]="false" [streetViewControl]="false">
       <agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng" (markerClick)="clickedMarker(infoWindow, i)">
         <agm-info-window #infoWindow>
-          <div class="container mt-3 card">
+          <div class="container mt-3 card" style="max-width: 250px;">
             <div class="card-title bg-white">
               <h3>
                 {{m.factoryInfo.companyName}}
@@ -14,8 +14,9 @@
               <p>
                 {{m.factoryInfo.activity}}
                 <br>
-                {{m.factoryInfo.billing}} M€
+                Billing: {{m.factoryInfo.billing}} €
               </p>
+              <hr>
                 <a [routerLink]="['/company', m.factoryInfo._id]" class="card-link">+Info</a>
             </div>
           </div>

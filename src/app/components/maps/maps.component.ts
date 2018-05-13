@@ -263,7 +263,6 @@ export class MapsComponent implements OnInit {
         };
         this.markers.push(currentMarker);
       });
-      console.log('factories are', this.markers, this.factories);
     });
   }
 
